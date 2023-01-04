@@ -1,0 +1,12 @@
+.role-stats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.role-list-item {
+    display: flex;
+    justify-content: center;
+}
