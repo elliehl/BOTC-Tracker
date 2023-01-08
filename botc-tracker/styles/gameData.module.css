@@ -4,9 +4,12 @@
     justify-content: center;
     border: 2px solid black;
     border-radius: 10px;
+    max-width: 400px;
 }
 
 .role-list-item {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 40px 5px 80px;
 }
