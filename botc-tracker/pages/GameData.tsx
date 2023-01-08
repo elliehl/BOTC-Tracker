@@ -60,7 +60,12 @@ const GameData = () => {
         <>
         <div className={styles['role-stats-container']}>
         {gameRecords.map((game) => {
-           return <h3 key={game.id} className={styles['role-list-item']}>{game.finalRole}</h3>
+           return (
+            <div className={styles['role-list-item']}>
+           <h3 key={game.id} >{game.finalRole}</h3>
+           <h3 key={game.id}>{game.isOnWinningTeam ? 'Win' : 'Loss'}</h3>
+           </div>
+           )
           })}
         </div>
         </>
