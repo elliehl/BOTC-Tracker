@@ -1,12 +1,12 @@
 import '../styles/globals.css'
 import Head from 'next/head'
-import GameData from './GameData'
 import NavBar from '../components/NavBar'
 import { Abel } from '@next/font/google'
+import type { AppProps } from 'next/app'
 
 const abel = Abel({ weight: '400', subsets: ['latin'] })
 
-export default function App() {
+export default function App({Component, pageProps}: AppProps) {
   return (
   <div className={abel.className}>
     <Head>
@@ -14,7 +14,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
      <NavBar />
-     <GameData />
+     <Component {...pageProps} />
   </div>
   )
 }
