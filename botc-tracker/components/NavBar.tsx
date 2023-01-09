@@ -7,11 +7,10 @@ const NavBar = () => {
         <div className={styles["navbar-container"]}>
             <div className={styles["navbar-left"]}>
                 <Link href="/GameData" className={styles["page-links"]}>Player Stats</Link>
-                <h4>Storyteller Stats</h4>
             </div>
             <div className={styles["navbar-right"]}>
                 <Link href="/about" className={styles["page-links"]}>About</Link>
-                <h4>Contact</h4>
+                <Link href="/contact" className={styles["page-links"]}>Contact</Link>
             </div>
         </div>
     )
