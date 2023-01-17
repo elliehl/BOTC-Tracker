@@ -30,12 +30,10 @@ interface CharacterTypes {
 
 interface Alignment {
     readonly id: number
-    gamesPlayedGood: number
-    gamesWonGood: number
-    winPercentageGood: number
-    gamesPlayedEvil: number
-    gamesWonEvil: number
-    winPercentageEvil: number
+    alignmentName: string
+    gamesPlayed: number
+    gamesWon: number
+    winPercentage: number
 }
 
 // TEST DATA
@@ -176,6 +174,23 @@ const characterTypes: CharacterTypes[] = [
     },
 ]
 
+const alignmentStats: Alignment[] = [
+    {
+    id: 1,
+    alignmentName: 'Good',
+    gamesPlayed: 100,
+    gamesWon: 75,
+    winPercentage: 75,
+    },
+    {
+    id: 2,
+    alignmentName: 'Evil',
+    gamesPlayed: 60,
+    gamesWon: 48,
+    winPercentage: 80,
+    }
+]
+
 function findTopFiveMostGamesPlayed (arr: Characters[]) {
     let sortRanking = characters.sort((a, b) => b.gamesPlayed - a.gamesPlayed)
     let topFive = sortRanking.slice(0,5)
@@ -198,16 +213,35 @@ const GameData = () => {
           })}
         </div>
         <div className={styles['role-stats-container']}>
+            <div className="role-stats-titles">
+            <h3>Role</h3>
+            <h3>Games</h3>
+            <h3>Wins</h3>
+            <h3>Win %</h3>
+            </div>
             {topData.map((rank) => {
                 return (
                     <div className="played-list">
                         <h3>{rank.name}</h3>
                         <h3>{rank.gamesPlayed}</h3>
+                        <h3>{rank.totalWins}</h3>
                         <h3>{rank.winPercentage + '%'}</h3>
                     </div>
                 )
             })
             }
+        </div>
+        <div className={styles['alignment-container']}>
+            {alignmentStats.map((alignment) => {
+                return (
+                    <div className="alignment-list">
+                        <h3>Alignment: {alignment.alignmentName}</h3>
+                        <h3>Games Played: {alignment.gamesPlayed}</h3>
+                        <h3>Games Won: {alignment.gamesWon}</h3>
+                        <h3>Win Percentage: {alignment.winPercentage + '%'}</h3>
+                    </div>
+                )
+            })}
         </div>
         </>
     )
