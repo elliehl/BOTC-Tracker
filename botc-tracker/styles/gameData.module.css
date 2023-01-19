@@ -1,29 +1,6 @@
-.game-history-container {
+.main-page {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    max-width: 400px;
-}
-
-.history-list-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 5px 40px 5px 80px;
-}
-
-.role-stats-container, .alignment-container {
-    display: flex;
-    flex-direction: row;
-    max-width: 400px;
-    border: 2px solid black;
-    border-radius: 10px;
+    gap: 20px;
     justify-content: space-evenly;
-}
-
-.role-stats-titles {
-    display: flex;
-    flex-direction: column;
+    margin: 20px;
 }
