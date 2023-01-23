@@ -7,6 +7,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <div id="react-modal"></div>
       </body>
     </Html>
   )
