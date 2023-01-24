@@ -10,7 +10,7 @@ const AddGameButton = () => {
         <div className={styles["add-game-button-container"]}>
         <button className={styles["add-game-button"]} onClick={() => setViewModal(true)}>Add Game</button>
         </div>
-        <Modal isOpen={viewModal}>
+        <Modal isOpen={viewModal} onRequestClose={() => setViewModal(false)}>
             <form>
                 <div>
                     <label>Starting Role</label>
@@ -22,19 +22,23 @@ const AddGameButton = () => {
                 </div>
                 <div>
                     <label>Alignment</label>
-                    <input type="button" className={styles["alignment-button"]} value="Win"></input>
-                    <input type="button" className={styles["alignment-button"]} value="Loss"></input>
+                    <input type="button" className={styles["alignment-button"]} value="Good"></input>
+                    <input type="button" className={styles["alignment-button"]} value="Evil"></input>
                 </div>
                 <div>
                     <label>Result</label>
-                    <input></input>
+                    <input type="button" className={styles["alignment-button"]} value="Win"></input>
+                    <input type="button" className={styles["alignment-button"]} value="Loss"></input>
                 </div>
                 <div>
                     <label>Date</label>
                     <input type="date"></input>
                 </div>
             </form>
-            <button onClick={() => setViewModal(false)}>Cancel</button>
+            <div>
+                <button>Submit</button>
+                <button onClick={() => setViewModal(false)}>Cancel</button>
+            </div>
         </Modal>
         </>
     )
