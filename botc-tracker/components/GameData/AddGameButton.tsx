@@ -14,17 +14,17 @@ const AddGameButton = () => {
         <button className={styles["add-game-button"]} onClick={() => setViewModal(true)}>Add Game</button>
         </div>
         <Modal isOpen={viewModal} onRequestClose={() => setViewModal(false)}>
-            <form>
+            <form action="/GameData" method="post">
                 <div>
                     <label>Starting Role</label>
-                    <input list="roles" required={true}></input>
+                    <input list="roles" name="Starting Role" required={true}></input>
                     <datalist id="roles">
                         {roleList.map((roleName) => <option>{roleName}</option>)}
                     </datalist>
                 </div>
                 <div>
                     <label>Final Role</label>
-                    <input list="roles" required={true}></input>
+                    <input list="roles" name="Final Role" required={true}></input>
                     <datalist id="roles">
                         {roleList.map((roleName) => <option>{roleName}</option>)}
                     </datalist>
@@ -47,11 +47,11 @@ const AddGameButton = () => {
                     <label>Date</label>
                     <input type="date"></input>
                 </div>
+                <div>
+                    <button type="submit">Submit</button>
+                    <button onClick={() => setViewModal(false)}>Cancel</button>
+                </div>
             </form>
-            <div>
-                <button type="submit">Submit</button>
-                <button onClick={() => setViewModal(false)}>Cancel</button>
-            </div>
         </Modal>
         </>
     )
