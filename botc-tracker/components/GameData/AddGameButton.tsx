@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "../../styles/AddGameButton.module.css"
 const Modal = require('react-modal')
+import roleDataArray from "./roleData";
+
+const roleList = roleDataArray.map((role) => role.name).sort()
 
 const AddGameButton = () => {
     const [viewModal, setViewModal] = useState(false)
@@ -14,21 +17,31 @@ const AddGameButton = () => {
             <form>
                 <div>
                     <label>Starting Role</label>
-                    <input></input>
+                    <input list="roles" required={true}></input>
+                    <datalist id="roles">
+                        {roleList.map((roleName) => <option>{roleName}</option>)}
+                    </datalist>
                 </div>
                 <div>
                     <label>Final Role</label>
-                    <input></input>
+                    <input list="roles" required={true}></input>
+                    <datalist id="roles">
+                        {roleList.map((roleName) => <option>{roleName}</option>)}
+                    </datalist>
                 </div>
-                <div>
+                <div className={styles["alignment-container"]}>
                     <label>Alignment</label>
-                    <input type="button" className={styles["alignment-button"]} value="Good"></input>
-                    <input type="button" className={styles["alignment-button"]} value="Evil"></input>
+                    <div className={styles["alignment-button-container"]}>
+                        <input type="button" className={styles["choice-button-left"]} value="Good"></input>
+                        <input type="button" className={styles["choice-button-right"]} value="Evil"></input>
+                    </div>
                 </div>
-                <div>
+                <div className={styles["result-container"]}>
                     <label>Result</label>
-                    <input type="button" className={styles["alignment-button"]} value="Win"></input>
-                    <input type="button" className={styles["alignment-button"]} value="Loss"></input>
+                    <div className={styles["alignment-button-container"]}>
+                        <input type="button" className={styles["choice-button-left"]} value="Win"></input>
+                        <input type="button" className={styles["choice-button-right"]} value="Loss"></input>
+                    </div>
                 </div>
                 <div>
                     <label>Date</label>
@@ -36,7 +49,7 @@ const AddGameButton = () => {
                 </div>
             </form>
             <div>
-                <button>Submit</button>
+                <button type="submit">Submit</button>
                 <button onClick={() => setViewModal(false)}>Cancel</button>
             </div>
         </Modal>
