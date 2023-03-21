@@ -6,6 +6,7 @@
 .pnp.js
 client/node_modules
 client/.next
+server/node_modules
 
 # testing
 /coverage
