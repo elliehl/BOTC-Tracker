@@ -1,9 +1,26 @@
-const db = require("../server.js");
+const db = require("../db/connection.js");
 
-db.connect(function (err) {
-  if (err) throw err;
-  console.log("Connected to database");
-});
+const fetchGames1 = () => {
+  console.log(db.query);
+  return db.query(`SELECT * FROM games`).then(({ rows }) => {
+    return rows[0];
+  });
+};
+
+module.exports = { fetchGames1 };
+
+// const fetchGames1 = () => {
+//   return db.query(`SELECT * FROM games;`, (err, res) => {
+//     if (err) throw err;
+//     console.log(res);
+//   });
+// };
+
+// const fetchGames1 = () => {
+//   return db
+//     .then((conn) => conn.query(`SELECT * FROM games`))
+//     .then(([rows, fields]) => console.log(rows[0]));
+// };
 
 // const fetchGames = () => {
 //   return db.query(`SELECT * FROM games;`).then(({ rows }) => {
@@ -14,12 +31,3 @@ db.connect(function (err) {
 //     return rows[0];
 //   });
 // };
-
-const fetchGames1 = () => {
-  return test.query(`SELECT * FROM games;`, (err, res) => {
-    if (err) throw err;
-    console.log(res);
-  });
-};
-
-module.exports = fetchGames1;
