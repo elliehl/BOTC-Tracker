@@ -68,9 +68,10 @@ class Query {
     );
   }
   addGame(gameData) {
+    let date = gameData.date === "" ? null : `'${gameData.date}'`;
     this.db.query(
       `INSERT INTO games(date, game_won, is_evil, comments, starting_role_id, final_role_id)
-       VALUES ('${gameData.date}', ${gameData.result}, ${gameData.alignment}, '${gameData.comments}', ${gameData.startingRole}, ${gameData.finalRole});`
+       VALUES (${date}, ${gameData.result}, ${gameData.alignment}, '${gameData.comments}', ${gameData.startingRole}, ${gameData.finalRole});`
     );
   }
 }
