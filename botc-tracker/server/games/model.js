@@ -3,8 +3,13 @@ const db = require("../db/connection.js");
 const fetchGames1 = async () => {
   try {
     const connection = await db.getConnection();
-    const [rows] = await connection.query(`SELECT * FROM games`);
-    return rows;
+    const [gameData] = await connection.query(
+      `SELECT date, game_won, is_evil, comments, r.name AS starting_role, t.name as type
+          FROM games g 
+          JOIN roles r ON r.id = g.starting_role_id
+          JOIN types t ON t.id = r.type_id;`
+    );
+    return gameData;
   } catch (err) {
     throw err;
   }
