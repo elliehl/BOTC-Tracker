@@ -146,4 +146,4 @@ VALUES ('2023-02-06', true, false, 'test', 1, 1),
        ('2023-02-06', true, false, 'test', 4, 4),
        ('2023-02-06', true, false, 'test', 4, 4),
        ('2023-02-06', false, false, 'test', 20, 20),
-       ('2023-02-06', true, true, 'test', 80, 80);
+       ('2023-02-06', true, true, 'my best evil game yet', 80, 80);
