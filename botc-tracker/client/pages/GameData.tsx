@@ -16,7 +16,7 @@ const GameData = () => {
             <AlignmentStats />
             {/* <CharacterTypeStats /> */}
             <DisplayGames />
-            <RoleStats />
+            {/* <RoleStats /> */}
         </div>
         </>
     )
