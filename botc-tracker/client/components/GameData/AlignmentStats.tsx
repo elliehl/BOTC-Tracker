@@ -1,44 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from "../../styles/AlignmentStats.module.css"
 
-interface Alignment {
-    readonly id: number
-    alignmentName: string
-    gamesPlayed: number
-    gamesWon: number
-    winPercentage: number
-}
-
-const alignmentStats: Alignment[] = [
-    {
-    id: 1,
-    alignmentName: 'Good',
-    gamesPlayed: 100,
-    gamesWon: 75,
-    winPercentage: 75,
-    },
-    {
-    id: 2,
-    alignmentName: 'Evil',
-    gamesPlayed: 60,
-    gamesWon: 48,
-    winPercentage: 80,
-    }
-]
-
 const AlignmentStats = () => {
+    const [alignmentStats, setAlignmentStats] = useState([])
+
+    const getAlignmentStats = async () => {
+        const res = await fetch('http://localhost:9090/alignment')
+        res.json().then((res) => setAlignmentStats(res.stats))
+    }
+
+    useEffect(() => {
+        getAlignmentStats()
+    }, [])
+
     return (
         <div className={styles['alignment-container']}>
-            {alignmentStats.map((alignment) => {
-                return (
-                    <div className="alignment-list">
-                        <h3>Alignment: {alignment.alignmentName}</h3>
-                        <h3>Games Played: {alignment.gamesPlayed}</h3>
-                        <h3>Games Won: {alignment.gamesWon}</h3>
-                        <h3>Win Percentage: {alignment.winPercentage + '%'}</h3>
-                    </div>
-                )
-            })}
+        <>
+        {alignmentStats.map((stats) => {
+            return (<div key={stats.id} className={styles['alignment-list']}>
+                <>
+                <h3>{stats.is_evil === 0 ? 'Good Wins' : 'Evil Wins'} {stats.wins}</h3>
+                </>
+            </div>
+            )
+        })
+        }
+        </>
         </div>
     )
 }
