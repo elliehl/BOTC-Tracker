@@ -19,9 +19,12 @@ const DisplayGames = () => {
         {gameHistory.map((game) => {
             return (<div key={game.id} className={styles['history-list-item']}>
                 <h3>{game.starting_role}</h3>
+                <h3>{game.final_role}</h3>
                 <h3>{game.is_evil === 0 ? 'Good' : 'Evil'}</h3>
                 <h3>{game.game_won === 0 ? 'Loss' : 'Win'}</h3>
                 <h3>{game.comments}</h3>
+                <h3>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</h3>
+                {console.log(typeof game.date)}
             </div>
             )
         })
