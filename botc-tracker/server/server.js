@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const { getGames } = require("./games/controller.js");
+const { getStatsByAlignment } = require("./stats/controller.js");
 
 const Query = require("./db/queries.js");
 const db = require("./db/connection.js");
@@ -17,6 +18,7 @@ app.listen(9090, (err) => {
 });
 
 app.get("/games", getGames);
+app.get("/alignment", getStatsByAlignment);
 
 app.post("/", (req, res) => {
   let data = req.body;
