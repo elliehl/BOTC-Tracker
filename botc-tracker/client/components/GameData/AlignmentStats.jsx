@@ -19,7 +19,7 @@ const AlignmentStats = () => {
         {alignmentStats.map((stats) => {
             return (<div key={stats.id} className={styles['alignment-list']}>
                 <>
-                <h3>{stats.is_evil === 0 ? 'Good Wins' : 'Evil Wins'} {stats.wins}</h3>
+                <h3>{stats.is_evil === 0 ? 'Good Wins: ' : 'Evil Wins: '} {stats.wins}</h3>
                 </>
             </div>
             )
