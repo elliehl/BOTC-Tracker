@@ -9,6 +9,8 @@ const DisplayGames = () => {
         res.json().then((res) => setGameHistory(res.games))
     }
 
+    // const handleDelete = 'TODO'
+
     useEffect(() => {
         getGames()
     }, [])
@@ -24,7 +26,7 @@ const DisplayGames = () => {
                 <h3>{game.game_won === 0 ? 'Loss' : 'Win'}</h3>
                 <h3>{game.comments}</h3>
                 <h3>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</h3>
-                {console.log(typeof game.date)}
+                <button type="button">Delete</button>
             </div>
             )
         })
