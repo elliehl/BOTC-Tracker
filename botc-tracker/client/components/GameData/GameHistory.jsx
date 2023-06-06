@@ -18,7 +18,7 @@ const DisplayGames = () => {
         }).then((res) => {
             if (!res.ok) {
                 throw err
-            } console.log('Success!')
+            } getGames()
         }).catch((err) => console.log(err))
     }
 
