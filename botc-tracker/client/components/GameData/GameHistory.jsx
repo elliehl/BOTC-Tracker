@@ -9,7 +9,19 @@ const DisplayGames = () => {
         res.json().then((res) => setGameHistory(res.games))
     }
 
-    // const handleDelete = 'TODO'
+    const handleDelete = async () => {
+        await fetch(`http://localhost:9090/games/${id}`, {
+            method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+        }).then((res) => {
+            if (!res.ok) {
+                throw err
+            } console.log('Success!')
+        }).catch((err) => console.log(err))
+
+    }
 
     useEffect(() => {
         getGames()
@@ -26,7 +38,7 @@ const DisplayGames = () => {
                 <h3>{game.game_won === 0 ? 'Loss' : 'Win'}</h3>
                 <h3>{game.comments}</h3>
                 <h3>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</h3>
-                <button type="button">Delete</button>
+                <button onClick={() => handleDelete(game.id)} type="button">Delete</button>
             </div>
             )
         })
