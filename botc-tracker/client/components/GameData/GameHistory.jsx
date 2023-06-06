@@ -9,7 +9,7 @@ const DisplayGames = () => {
         res.json().then((res) => setGameHistory(res.games))
     }
 
-    const handleDelete = async () => {
+    const handleDelete = async (id) => {
         await fetch(`http://localhost:9090/games/${id}`, {
             method: 'DELETE',
                 headers: {
@@ -20,7 +20,6 @@ const DisplayGames = () => {
                 throw err
             } console.log('Success!')
         }).catch((err) => console.log(err))
-
     }
 
     useEffect(() => {
