@@ -5,8 +5,13 @@ const DisplayGames = () => {
     const [gameHistory, setGameHistory] = useState([])
 
     const getGames = async () => {
+        try {
         const res = await fetch('http://localhost:9090/games')
         res.json().then((res) => setGameHistory(res.games))
+        } catch(err) {
+            console.log(err)
+            throw err
+        }
     }
 
     const handleDelete = async (id) => {
@@ -17,8 +22,12 @@ const DisplayGames = () => {
                 }
         }).then((res) => {
             if (!res.ok) {
+                console.log(res.err)
                 throw err
-            } getGames()
+            } else {
+                console.log('Success')
+                getGames()
+            }
         }).catch((err) => console.log(err))
     }
 
