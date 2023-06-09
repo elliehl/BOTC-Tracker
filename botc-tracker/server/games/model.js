@@ -10,6 +10,7 @@ const fetchGames1 = async () => {
           JOIN roles r1 ON r1.id = g.final_role_id
           JOIN types t ON t.id = r.type_id;`
     );
+    connection.release();
     return gameData;
   } catch (err) {
     throw err;
@@ -19,21 +20,26 @@ const fetchGames1 = async () => {
 const deleteGame = async (id) => {
   try {
     const connection = await db.getConnection();
-    return connection.query(`DELETE FROM games WHERE id = ${id}`);
+    const result = await connection.query(`DELETE FROM games WHERE id = ${id}`);
+    connection.release();
+    return result;
   } catch (err) {
     throw err;
   }
 };
 
-// const addGame = async () => {
-//   try {
-//     const connection = await db.getConnection();
-//     let date = gameData.date === "" ? null : `'${gameData.date}'`;
-//     return connection.query(`INSERT INTO games(date, game_won, is_evil, comments, starting_role_id, final_role_id)
-//     VALUES (${date}, ${gameData.result}, ${gameData.alignment}, '${gameData.comments}', ${gameData.startingRole}, ${gameData.finalRole});`);
-//   } catch (err) {
-//     throw err;
-//   }
-// };
+const postGame = async (gameData) => {
+  try {
+    const connection = await db.getConnection();
+    let date = gameData.date === "" ? null : `'${gameData.date}'`;
+    const result =
+      await connection.query(`INSERT INTO games(date, game_won, is_evil, comments, starting_role_id, final_role_id)
+    VALUES (${date}, ${gameData.result}, ${gameData.alignment}, '${gameData.comments}', ${gameData.startingRole}, ${gameData.finalRole});`);
+    connection.release();
+    return result;
+  } catch (err) {
+    throw err;
+  }
+};
 
-module.exports = { fetchGames1, deleteGame };
+module.exports = { fetchGames1, deleteGame, postGame };
