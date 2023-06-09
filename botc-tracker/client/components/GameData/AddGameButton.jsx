@@ -34,7 +34,7 @@ const AddGameButton = () => {
                 })
             });
             let jsonResponse = await res.json()
-            if (res.status === 200) {
+            if (res.status === 201) {
                 console.log(jsonResponse)
                 setAlignment(false)
                 setResult(false)
