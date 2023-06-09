@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { getGames, removeGame } = require("./games/controller.js");
+const { getGames, removeGame, addGame } = require("./games/controller.js");
 const { getStatsByAlignment } = require("./stats/controller.js");
 
 const Query = require("./db/queries.js");
@@ -20,9 +20,4 @@ app.listen(9090, (err) => {
 app.get("/games", getGames);
 app.get("/alignment", getStatsByAlignment);
 app.delete("/games/:game_id", removeGame);
-
-app.post("/", (req, res) => {
-  let data = req.body;
-  queries.addGame(data);
-  res.send(JSON.stringify(data));
-});
+app.post("/", addGame);
