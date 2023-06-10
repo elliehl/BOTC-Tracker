@@ -34,7 +34,7 @@ const postGame = async (gameData) => {
     let date = gameData.date === "" ? null : `'${gameData.date}'`;
     const result =
       await connection.query(`INSERT INTO games(date, game_won, is_evil, comments, starting_role_id, final_role_id)
-    VALUES (${date}, ${gameData.result}, ${gameData.alignment}, '${gameData.comments}', ${gameData.startingRole}, ${gameData.finalRole});`);
+    VALUES (${date}, ${gameData.result}, ${gameData.alignment}, "${gameData.comments}", ${gameData.startingRole}, ${gameData.finalRole});`);
     connection.release();
     return result;
   } catch (err) {
