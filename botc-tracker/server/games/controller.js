@@ -1,7 +1,7 @@
-const { fetchGames1, deleteGame, postGame } = require("./model.js");
+const { fetchGames, deleteGame, postGame } = require("./model.js");
 
 const getGames = (req, res) => {
-  fetchGames1()
+  fetchGames()
     .then((games) => {
       res.status(200).send({ games });
     })

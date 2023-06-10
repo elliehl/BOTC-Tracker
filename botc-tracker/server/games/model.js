@@ -1,6 +1,6 @@
 const db = require("../db/connection.js");
 
-const fetchGames1 = async () => {
+const fetchGames = async () => {
   try {
     const connection = await db.getConnection();
     const [gameData] = await connection.query(
@@ -42,4 +42,4 @@ const postGame = async (gameData) => {
   }
 };
 
-module.exports = { fetchGames1, deleteGame, postGame };
+module.exports = { fetchGames, deleteGame, postGame };
