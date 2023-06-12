@@ -14,9 +14,11 @@ const GameData = () => {
         <AddGameButton />
         <div className={styles["main-page"]}>
             <AlignmentStats />
-            {/* <CharacterTypeStats /> */}
-            <DisplayGames />
+            <CharacterTypeStats />
             {/* <RoleStats /> */}
+        </div>
+        <div className={styles["main-page"]}>
+        <DisplayGames />
         </div>
         </>
     )
