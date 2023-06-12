@@ -6,7 +6,7 @@ const { getStatsByAlignment } = require("./stats/controller.js");
 
 const Query = require("./db/queries.js");
 const db = require("./db/connection.js");
-const queries = new Query(db);
+const { getStatsByRoleType } = require("./types/controller.js");
 
 app.use(express.json());
 app.use(cors());
@@ -19,5 +19,6 @@ app.listen(9090, (err) => {
 
 app.get("/games", getGames);
 app.get("/alignment", getStatsByAlignment);
+app.get("/type", getStatsByRoleType);
 app.delete("/games/:game_id", removeGame);
 app.post("/", addGame);
