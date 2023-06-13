@@ -6,6 +6,7 @@ import DisplayGames from "../components/GameData/GameHistory"
 import RoleStats from "../components/GameData/RoleStats"
 import "../styles/AlignmentStats.module.css"
 import AddGameButton from "../components/GameData/AddGameButton"
+import RoleStatsTest from "../components/GameData/RoleStats"
 
 const GameData = () => {
 
@@ -15,7 +16,7 @@ const GameData = () => {
         <div className={styles["main-page"]}>
             <AlignmentStats />
             <CharacterTypeStats />
-            {/* <RoleStats /> */}
+            <RoleStatsTest />
         </div>
         <div className={styles["main-page"]}>
         <DisplayGames />
