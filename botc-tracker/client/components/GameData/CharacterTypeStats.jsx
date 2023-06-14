@@ -16,6 +16,12 @@ const CharacterTypeStats = () => {
     return (
         <div className={styles['type-container']}>
         <>
+        <div>
+            <h3>Type</h3>
+            <h3>Games</h3>
+            <h3>Wins</h3>
+            <h3>Win %</h3>
+            </div>
         {typeStats.map((stats) => {
             return (<div key={stats.id} className={styles['type-list']}>
                 <>
