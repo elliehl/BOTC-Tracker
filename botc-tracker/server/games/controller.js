@@ -1,4 +1,4 @@
-const { fetchGames, deleteGame, postGame } = require("./model.js");
+const { fetchGames, deleteGame, postGame, updateGame } = require("./model.js");
 
 const getGames = (req, res) => {
   fetchGames()
@@ -33,4 +33,16 @@ const removeGame = (req, res) => {
     });
 };
 
-module.exports = { getGames, removeGame, addGame };
+const editGame = (req, res) => {
+  let editedData = req.body;
+  updateGame(editedData)
+    .then(() => {
+      res.status(200).send(editedData);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send("Internal server error");
+    });
+};
+
+module.exports = { getGames, removeGame, addGame, editGame };
