@@ -63,6 +63,7 @@ const DisplayGames = () => {
                 <h3>{game.game_won === 0 ? 'Loss' : 'Win'}</h3>
                 <h3>{game.comments}</h3>
                 <h3>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</h3>
+                <button onClick={() => handleUpdate(game.id)} type="button">Edit</button>
                 <button onClick={() => handleDelete(game.id)} type="button">Delete</button>
             </div>
             )
