@@ -42,4 +42,20 @@ const postGame = async (gameData) => {
   }
 };
 
-module.exports = { fetchGames, deleteGame, postGame };
+const updateGame = async (gameData, id) => {
+  try {
+    const connection = await db.getConnection();
+    let date = gameData.date === "" ? null : `'${gameData.date}'`;
+    const result = await connection.query(
+      `UPDATE games
+       SET date = ${date}, game_won = ${gameData.result}, is_evil = ${gameData.alignment}, comments = "${gameData.comments}", starting_role_id = ${gameData.startingRole}, final_role_id = ${gameData.finalRole}
+       WHERE id = ${id};`
+    );
+    connection.release();
+    return result;
+  } catch (err) {
+    throw err;
+  }
+};
+
+module.exports = { fetchGames, deleteGame, postGame, updateGame };
