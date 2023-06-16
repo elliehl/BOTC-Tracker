@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { getGames, removeGame, addGame } = require("./games/controller.js");
+const {
+  getGames,
+  removeGame,
+  addGame,
+  editGame,
+} = require("./games/controller.js");
 const { getStatsByAlignment } = require("./stats/controller.js");
-
-const Query = require("./db/queries.js");
 const db = require("./db/connection.js");
 const { getStatsByRoleType } = require("./types/controller.js");
 const { getStatsByRole } = require("./roles/controller.js");
@@ -24,3 +27,4 @@ app.get("/type", getStatsByRoleType);
 app.get("/roles", getStatsByRole);
 app.delete("/games/:game_id", removeGame);
 app.post("/", addGame);
+app.put("/games/:game_id", editGame);
