@@ -3,6 +3,7 @@ import styles from "../../styles/GameHistory.module.css"
 
 const DisplayGames = () => {
     const [gameHistory, setGameHistory] = useState([])
+    const [selectedGame, setSelectedGame] = useState({alignment: false, result: false, startingRole: '', finalRole: '', date: '', comments: ''})
 
     const getGames = async () => {
         try {
@@ -30,6 +31,22 @@ const DisplayGames = () => {
             }
         }).catch((err) => console.log(err))
     }
+
+    const handleUpdate = async (id) => {
+        await fetch(`http://localhost:9090/games/${id}`, {
+            method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                }, body: JSON.stringify({
+                    alignment: selectedGame.alignment,
+                    result: selectedGame.result,
+                    startingRole: (roleToSend.filter((obj) => selectedGame.startingRole === obj.roleName))[0].id,
+                    finalRole: (roleToSend.filter((obj) => selectedGame.finalRole === obj.roleName))[0].id,
+                    date: selectedGame.date,
+                    comments: selectedGame.comments
+                })
+            })
+    } 
 
     useEffect(() => {
         getGames()
