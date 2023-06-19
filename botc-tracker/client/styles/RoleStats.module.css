@@ -1,8 +1,33 @@
 .role-stats-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     max-width: 400px;
     border: 2px solid black;
     border-radius: 10px;
     justify-content: space-evenly;
+}
+
+.role-stats-titles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.played-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.played-list:not(:last-child) {
+    border-bottom: 2px solid black;
+}
+
+.starting-role-item, .games-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em;
 }

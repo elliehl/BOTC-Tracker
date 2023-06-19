@@ -24,7 +24,7 @@ const RoleStats = () => {
 
     return (
         <div className={styles['role-stats-container']}>
-            <div className="role-stats-titles">
+            <div className={styles["role-stats-titles"]}>
             <h3>Role</h3>
             <h3>Games</h3>
             <h3>Wins</h3>
@@ -32,9 +32,9 @@ const RoleStats = () => {
             </div>
             {topData.map((rank) => {
                 return (
-                    <div className="played-list">
-                        <h3>{rank.starting_role}</h3>
-                        <h3>{rank.games}</h3>
+                    <div className={styles["played-list"]}>
+                        <h3 className={styles["starting-role-item"]}>{rank.starting_role}</h3>
+                        <h3 className={styles["games-item"]}>{rank.games}</h3>
                         <h3>{rank.wins}</h3>
                         <h3>{Math.round((rank.wins / rank.games) * 100)}%</h3>
                     </div>
