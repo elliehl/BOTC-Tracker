@@ -71,38 +71,38 @@ const DisplayGames = () => {
         <Modal isOpen={viewModal} onRequestClose={() => setViewModal(false)} className={styles["modal"]}>
             <form action="/GameData" method="POST" id="overallForm" className={styles["form"]} onSubmit={handleSubmit}>
                 <div>
-                    <label>Starting Role</label>
-                    <input list="roles" name="Starting Role" required={true} value={startingRole} onChange={(e) => setStartingRole(e.target.value)}></input>
+                    <label htmlFor="starting-role-box">Starting Role</label>
+                    <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={startingRole} onChange={(e) => setStartingRole(e.target.value)}></input>
                     <datalist id="roles">
                         {roleList.map((roleName) => <option>{roleName}</option>)}
                     </datalist>
                 </div>
                 <div>
-                    <label>Final Role</label>
-                    <input list="roles" name="Final Role" required={true} value={finalRole} onChange={(e) => setFinalRole(e.target.value)}></input>
+                    <label htmlFor="final-role-box">Final Role</label>
+                    <input id="final-role-box" list="roles" name="Final Role" required={true} value={finalRole} onChange={(e) => setFinalRole(e.target.value)}></input>
                     <datalist id="roles">
                         {roleList.map((roleName) => <option>{roleName}</option>)}
                     </datalist>
                 </div>
                 <div className={styles["alignment-container"]}>
-                    <label>Alignment</label>
+                    <label htmlFor="alignment-box">Alignment</label>
                     <div className={styles["button-container"]}>
-                        <input type="checkbox" className={styles["alignment-button"]} checked={alignment} onChange={e => setAlignment(!alignment)}></input>
+                        <input id="alignment-box" type="checkbox" className={styles["alignment-button"]} checked={alignment} onChange={e => setAlignment(!alignment)}></input>
                     </div>
                 </div>
                 <div className={styles["result-container"]}>
-                    <label>Result</label>
+                    <label htmlFor="result-box">Result</label>
                     <div className={styles["button-container"]}>
-                        <input type="checkbox" className={styles["result-button"]} checked={result} onChange={e => setResult(!result)}></input>
+                        <input id="result-box" type="checkbox" className={styles["result-button"]} checked={result} onChange={e => setResult(!result)}></input>
                     </div>
                 </div>
                 <div>
-                    <label>Date</label>
-                    <input type="date" value={date} onChange={e => setDate(e.target.value)}></input>
+                    <label htmlFor="date-box">Date</label>
+                    <input id="date-box" type="date" value={date} onChange={e => setDate(e.target.value)}></input>
                 </div>
                 <div>
-                    <label>Comments</label>
-                    <input type="text" value={comments} onChange={e => setComments(e.target.value)}></input>
+                    <label htmlFor="comments-box">Comments</label>
+                    <input id="comments-box" type="text" value={comments} onChange={e => setComments(e.target.value)}></input>
                 </div>
                 <div className="bottom-modal-buttons">
                     <button type="submit">Submit</button>
