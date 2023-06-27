@@ -12,7 +12,7 @@ const GameData = () => {
 
     return (
         <>
-        <AddGameButton />
+        {/* <AddGameButton /> */}
         <div className={styles["main-page"]}>
             <AlignmentStats />
             <CharacterTypeStats />
