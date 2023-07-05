@@ -137,7 +137,7 @@ VALUES ('Alchemist', 1),
        ('Matron', 5),
        ('Scapegoat', 5),
        ('Thief', 5),
-       ('Voudon', 5)
+       ('Voudon', 5),
        ('High Priestess', 1);
        
 INSERT INTO games(date, game_won, is_evil, comments, starting_role_id, final_role_id)
