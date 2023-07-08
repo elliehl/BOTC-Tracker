@@ -23,25 +23,29 @@ const RoleStats = () => {
     let topData = findTopFiveMostGamesPlayed(roleStats)
 
     return (
-        <div className={styles['role-stats-container']}>
-            <div className={styles["role-stats-titles"]}>
-            <h3>Role</h3>
-            <h3>Games</h3>
-            <h3>Wins</h3>
-            <h3>Win %</h3>
-            </div>
+        <table className={styles['role-stats-container']}>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Games</th>
+                    <th>Wins</th>
+                    <th>Win %</th>
+                </tr>
+            </thead>
             {topData.map((rank) => {
                 return (
-                    <div className={styles["played-list"]}>
-                        <h3 className={styles["starting-role-item"]}>{rank.starting_role}</h3>
-                        <h3 className={styles["games-item"]}>{rank.games}</h3>
-                        <h3>{rank.wins}</h3>
-                        <h3>{Math.round((rank.wins / rank.games) * 100)}%</h3>
-                    </div>
+                    <tbody>
+                        <tr>
+                            <td>{rank.starting_role}</td>
+                            <td>{rank.games}</td>
+                            <td>{rank.wins}</td>
+                            <td>{Math.round((rank.wins / rank.games) * 100)}%</td>
+                        </tr>
+                    </tbody>
                 )
             })
             }
-        </div>
+        </table>
     )
 }
 
