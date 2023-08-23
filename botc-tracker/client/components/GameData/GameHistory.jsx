@@ -21,7 +21,7 @@ const DisplayGames = () => {
     }
 
     const AddGameButton = () => {
-
+    
     const [viewModal, setViewModal] = useState(false)
     const [alignment, setAlignment] = useState(false)
     const [result, setResult] = useState(false)
@@ -48,15 +48,19 @@ const DisplayGames = () => {
                 })
             });
             let jsonResponse = await res.json()
+            // the 2 lines below are needed to actually show the roles for the node backend, otherwise it shows as blank because
+            // it's initially being given the id number not the role string
+            jsonResponse.starting_role = startingRole
+            jsonResponse.final_role = finalRole
             if (res.status === 201) {
                 console.log(jsonResponse)
+                setGameHistory([...gameHistory, jsonResponse])
                 setAlignment(false)
                 setResult(false)
                 setStartingRole('')
                 setFinalRole('')
                 setDate('')
                 setComments('')
-                getGames()
             } else {
                 console.log('Response not OK')
             }
@@ -126,7 +130,7 @@ const DisplayGames = () => {
                 throw err
             } else {
                 console.log('Success')
-                getGames()
+                setGameHistory([...gameHistory.filter((game) => game.id != id)])
             }
         }).catch((err) => console.log(err))
     }
@@ -155,20 +159,39 @@ const DisplayGames = () => {
         <div className={styles1['game-history-container']}>
         <>
         <AddGameButton/>
-        {gameHistory.map((game) => {
-            return (<div key={game.id} className={styles1['history-list-item']}>
-                <h3>{game.starting_role}</h3>
-                <h3>{game.final_role}</h3>
-                <h3>{game.is_evil === 0 ? 'Good' : 'Evil'}</h3>
-                <h3>{game.game_won === 0 ? 'Loss' : 'Win'}</h3>
-                <h3>{game.comments}</h3>
-                <h3>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</h3>
-                <button onClick={() => handleUpdate(game.id)} type="button">Edit</button>
-                <button onClick={() => handleDelete(game.id)} type="button">Delete</button>
-            </div>
-            )
-        })
-        }
+        {gameHistory.length === 0 && 'No Game History'}
+        <table>
+            <thead>
+                <tr>
+                    <th>Starting Role</th>
+                    <th>Final Role</th>
+                    <th>Alignment</th>
+                    <th>Result</th>
+                    <th>Comments</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {gameHistory.map((game) => {
+                    console.log(game)
+                    return (
+                        <tr key={game.id} className={styles1['history-list-item']}>
+                            <td>{game.starting_role}</td>
+                            <td>{game.final_role}</td>
+                            <td>{game.is_evil === 0 || game.alignment === false ? 'Good' : 'Evil'}</td>
+                            <td>{game.game_won === 0 || game.result === false ? 'Loss' : 'Win'}</td>
+                            <td>{game.comments}</td>
+                            <td>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</td>
+                            <td><button onClick={() => handleUpdate(game.id)} type="button">Edit</button></td>
+                            <td><button onClick={() => handleDelete(game.id)} type="button">Delete</button></td>
+                        </tr>
+                    )
+                })
+            }
+            </tbody>
+        </table>
         </>
         </div>
     )
