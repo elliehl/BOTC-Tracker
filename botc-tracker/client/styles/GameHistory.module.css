@@ -1,16 +1,21 @@
 .game-history-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     border: 2px solid black;
     border-radius: 10px;
-    min-width: 800px;
-    max-width: 1200px;
+    /* min-width: 800px;
+    max-width: 1200px; */
 }
 
-.history-list-item {
+/* .history-list-item { */
+    /* display: table-row; */
+    /* justify-content: space-between; */
+    /* margin: 5px 40px 5px 80px; */
+/* } */
+
+/* .data-entry {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 5px 40px 5px 80px;
-}
+    justify-content: center;
+    align-items: center;
+} */
