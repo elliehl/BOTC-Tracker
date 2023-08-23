@@ -1,10 +1,8 @@
 .role-stats-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
+    /* display: flex; */
+    /* flex-direction: column; */
     border: 2px solid black;
     border-radius: 10px;
-    justify-content: space-evenly;
 }
 
 .role-stats-titles {
