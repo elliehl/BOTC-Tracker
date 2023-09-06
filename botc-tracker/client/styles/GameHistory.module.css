@@ -14,8 +14,7 @@
     /* margin: 5px 40px 5px 80px; */
 /* } */
 
-/* .data-entry {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+.toggle-label {
+    width: 40px;
+    color: red;
+}
