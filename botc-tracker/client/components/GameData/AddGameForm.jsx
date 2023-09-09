@@ -1,7 +1,17 @@
 import styles from "../../styles/AddGameButton.module.css"
+import { useState } from "react"
 
 
 const AddGameForm = () => {
+
+    const [id, setId] = useState(null)
+    const [viewModal, setViewModal] = useState(false)
+    const [alignment, setAlignment] = useState(false)
+    const [result, setResult] = useState(false)
+    const [startingRole, setStartingRole] = useState('')
+    const [finalRole, setFinalRole] = useState('')
+    const [date, setDate] = useState('')
+    const [comments, setComments] = useState('')
 
     return (
         <form action="/GameData" method="POST" id="overallForm" className={styles["form"]} onSubmit={handleSubmit}>
