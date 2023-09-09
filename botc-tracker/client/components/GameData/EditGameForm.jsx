@@ -6,7 +6,6 @@ const roleList = roleDataArray.map((role) => role.name).sort()
 
 const EditGameForm = ({selectedGame}) => {
 
-    // const {is_Evil, game_Won, starting_Role, final_Role} = selectedGame
     const id = selectedGame.id
 
     const [viewModal, setViewModal] = useState(false)
