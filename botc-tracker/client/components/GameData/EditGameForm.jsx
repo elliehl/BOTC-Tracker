@@ -1,24 +1,25 @@
 import { GameContext } from "../../contexts/GameContext"
 import styles from "../../styles/AddGameButton.module.css"
-import { useContext, useState } from "react"
-
+import { useContext, useEffect, useState } from "react"
+import roleDataArray from "./roleData";
+const roleList = roleDataArray.map((role) => role.name).sort()
 
 const EditGameForm = ({selectedGame}) => {
 
-    const {is_Evil, game_Won, starting_Role, final_Role} = selectedGame
+    // const {is_Evil, game_Won, starting_Role, final_Role} = selectedGame
     const id = selectedGame.id
 
     const [viewModal, setViewModal] = useState(false)
-    const [alignment, setAlignment] = useState(is_Evil)
-    const [result, setResult] = useState(game_Won)
-    const [startingRole, setStartingRole] = useState(starting_Role)
-    const [finalRole, setFinalRole] = useState(final_Role)
+    const [is_Evil, setIs_Evil] = useState(selectedGame.is_Evil)
+    const [game_Won, setGame_Won] = useState(selectedGame.game_Won)
+    const [starting_Role, setStarting_Role] = useState(selectedGame.starting_Role)
+    const [final_Role, setFinal_Role] = useState(selectedGame.final_Role)
     const [date, setDate] = useState(selectedGame.date)
     const [comments, setComments] = useState(selectedGame.comments)
 
     const {updateGame} = useContext(GameContext)
 
-    const newlyUpdatedGame = {id, alignment, result, startingRole, finalRole, date, comments}
+    const newlyUpdatedGame = {id, is_Evil, game_Won, starting_Role, final_Role, date, comments}
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,27 +30,27 @@ const EditGameForm = ({selectedGame}) => {
         <form action="/GameData" method="PUT" id="overallForm" className={styles["form"]} onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="starting-role-box">Starting Role</label>
-                <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={startingRole} onChange={(e) => setStartingRole(e.target.value)}></input>
+                <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={starting_Role} onChange={(e) => setStarting_Role(e.target.value)}></input>
                 <datalist id="roles">
                     {roleList.map((roleName) => <option>{roleName}</option>)}
                 </datalist>
             </div>
             <div>
                 <label htmlFor="final-role-box">Final Role</label>
-                <input id="final-role-box" list="roles" name="Final Role" required={true} value={finalRole} onChange={(e) => setFinalRole(e.target.value)}></input>
+                <input id="final-role-box" list="roles" name="Final Role" required={true} value={final_Role} onChange={(e) => setFinal_Role(e.target.value)}></input>
                 <datalist id="roles">
                     {roleList.map((roleName) => <option>{roleName}</option>)}
                 </datalist>
             </div>
             <div className={styles["alignment-container"]}>
-                <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={alignment} onChange={e => setAlignment(!alignment)}></input>
+                <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={is_Evil} onChange={e => setIs_Evil(!is_Evil)}></input>
                 <label className="good-aligned" htmlFor="alignment-box">Good</label>
                 <label className="evil-aligned" htmlFor="alignment-box">Evil</label>
             </div>
             <div className={styles["result-container"]}>
                 <label htmlFor="result-box">Result</label>
                 <div className={styles["button-container"]}>
-                    <input id="result-box" type="checkbox" className={styles["result-button"]} checked={result} onChange={e => setResult(!result)}></input>
+                    <input id="result-box" type="checkbox" className={styles["result-button"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
                 </div>
             </div>
             <div>
