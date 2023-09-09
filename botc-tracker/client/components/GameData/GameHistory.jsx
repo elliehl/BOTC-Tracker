@@ -1,10 +1,7 @@
 import { useContext, useEffect, useState } from "react";
+import styles from "../../styles/AddGameButton.module.css"
 import styles1 from "../../styles/GameHistory.module.css"
-// import styles from "../../styles/AddGameButton.module.css"
 const Modal = require("react-modal")
-// import roleDataArray from "./roleData";
-// const roleList = roleDataArray.map((role) => role.name).sort()
-// const roleToSend = roleDataArray.map((role) => ({roleName: role.name, id: role.id}))
 import {GameContext} from "../../contexts/GameContext"
 import Game from "./Game"
 import AddGameForm from "./AddGameForm"
@@ -12,7 +9,6 @@ import AddGameForm from "./AddGameForm"
 const DisplayGames = () => {
 
     const {gameHistory} = useContext(GameContext)
-    console.log(gameHistory, 'gameHistory')
 
     const [viewAddModal, setViewAddModal] = useState(false)
     
@@ -23,7 +19,7 @@ const DisplayGames = () => {
     return (
         <div className={styles1['game-history-container']}>
         <>
-        <button onClick={() => setViewAddModal(true)}>Add New Game</button>
+        <button onClick={() => setViewAddModal(true)} className={styles["add-game-button"]}>Add New Game</button>
         {console.log(gameHistory)}
         {gameHistory.length === 0 && 'No Game History'}
         <table>
@@ -48,7 +44,7 @@ const DisplayGames = () => {
             </tbody>
         </table>
 
-        <Modal >
+        <Modal isOpen={viewAddModal} onRequestClose={() => setViewAddModal(false)}>
             <AddGameForm />
         </Modal>
         </>
