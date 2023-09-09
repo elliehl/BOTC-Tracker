@@ -35,4 +35,10 @@ const GameContextProvider = (props) => {
             console.log('error', err)
         }
     }
+
+    return (
+        <GameContext.Provider value={{addGame}}>
+            {props.children}
+        </GameContext.Provider>
+    )
 }
