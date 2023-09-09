@@ -5,6 +5,16 @@ export const GameContext = createContext();
 const GameContextProvider = (props) => {
     const [gameHistory, setGameHistory] = useState([])
 
+    const getGames = async () => {
+        try {
+        const res = await fetch('https://localhost:7240/api/Games')
+        res.json().then((res) => setGameHistory(res))
+        } catch(err) {
+            console.log(err)
+            throw err
+        }
+    }
+
     const addGame = async (e) => {
         e.preventDefault()
         try {
@@ -36,8 +46,25 @@ const GameContextProvider = (props) => {
         }
     }
 
+    const deleteGame = async (id) => {
+        await fetch(`https://localhost:7240/${id}`, {
+            method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+        }).then((res) => {
+            if (!res.ok) {
+                console.log(res.err)
+                throw err
+            } else {
+                console.log('Success')
+                setGameHistory([...gameHistory.filter((game) => game.id != id)])
+            }
+        }).catch((err) => console.log(err))
+    }
+
     return (
-        <GameContext.Provider value={{addGame}}>
+        <GameContext.Provider value={{getGames, addGame, deleteGame}}>
             {props.children}
         </GameContext.Provider>
     )
