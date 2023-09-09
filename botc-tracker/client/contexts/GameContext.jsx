@@ -63,7 +63,7 @@ const GameContextProvider = (props) => {
         }).catch((err) => console.log(err))
     }
 
-    const updateGame = async (e, id) => {
+    const updateGame = async (e, id, newlyUpdatedGame) => {
         e.preventDefault()
         try {
             let res = await fetch(`https://localhost:7240/api/Games/${id}`, {
@@ -84,7 +84,7 @@ const GameContextProvider = (props) => {
 
             if (res.status === 200) {
                 console.log(jsonResponse)
-                setGameHistory(gameHistory.map((game) => game.id === id ? jsonResponse : game))
+                setGameHistory(gameHistory.map((game) => game.id === id ? newlyUpdatedGame : game))
             } else {
                 console.log(jsonResponse)
                 console.log('Response not OK')
