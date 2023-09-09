@@ -3,13 +3,11 @@ import styles1 from "../../styles/GameHistory.module.css"
 import styles from "../../styles/AddGameButton.module.css"
 const Modal = require('react-modal')
 import roleDataArray from "./roleData";
-import { createTrue } from "typescript";
 const roleList = roleDataArray.map((role) => role.name).sort()
 const roleToSend = roleDataArray.map((role) => ({roleName: role.name, id: role.id}))
 
 const DisplayGames = () => {
     const [gameHistory, setGameHistory] = useState([])
-    // const [selectedGame, setSelectedGame] = useState({alignment: false, result: false, startingRole: '', finalRole: '', date: '', comments: ''})
 
     const getGames = async () => {
         try {
@@ -51,8 +49,6 @@ const DisplayGames = () => {
             });
             let jsonResponse = await res.json()
 
-            // jsonResponse.starting_role = startingRole
-            // jsonResponse.final_role = finalRole
             if (res.status === 201) {
                 console.log(jsonResponse)
                 setGameHistory([...gameHistory, jsonResponse])
@@ -218,11 +214,7 @@ const DisplayGames = () => {
             </>
         ) 
        }
-        
-
-            
-            
-
+    
     useEffect(() => {
         getGames()
     }, [])
@@ -256,7 +248,7 @@ const DisplayGames = () => {
                             <td>{game.game_Won === false ? 'Loss' : 'Win'}</td>
                             <td>{game.comments}</td>
                             <td>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</td>
-                            <td><HandleUpdate/></td>
+                            <td><HandleUpdate /></td>
                             <td><button onClick={() => handleDelete(game.id)} type="button">Delete</button></td>
                         </tr>
                     )
