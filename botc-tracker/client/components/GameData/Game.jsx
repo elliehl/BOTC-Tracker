@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { GameContext } from "../../contexts/GameContext"
-// const Modal = require("react-modal")
+const Modal = require("react-modal")
 import "../../styles/AddGameButton.module.css"
+import EditGameForm from "./EditGameForm"
 
 
 const Game = ({game}) => {
@@ -26,9 +27,9 @@ const Game = ({game}) => {
             <td><button onClick={() => setViewEditModal(true)} type="button">Edit</button></td>
             <td><button onClick={() => deleteGame(game.id)} type="button">Delete</button></td>
 
-            {/* <Modal isOpen={viewEditModal} onRequestClose={() => setViewEditModal(false)} className="modal">
+            <Modal isOpen={viewEditModal} onRequestClose={() => setViewEditModal(false)} className="modal">
                 <EditGameForm selectedGame={game}/>
-            </Modal> */}
+            </Modal>
         </>
     )
 }
