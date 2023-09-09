@@ -19,7 +19,8 @@ const GameContextProvider = (props) => {
         }
     }
 
-    const addGame = async () => {
+    const addGame = async (addedGame) => {
+        const {is_Evil, game_Won, starting_Role, final_Role, comments, date} = addedGame;
         try {
             let res = await fetch('https://localhost:7240/api/Games', {
                 method: 'POST',
@@ -27,21 +28,21 @@ const GameContextProvider = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    Is_Evil: alignment,
-                    Game_Won: result,
-                    Starting_Role: startingRole,
-                    Final_Role: finalRole,
+                    Is_Evil: is_Evil,
+                    Game_Won: game_Won,
+                    Starting_Role: starting_Role,
+                    Final_Role: final_Role,
                     Date: date,
                     Comments: comments
                 })
             });
-            let jsonResponse = await res.json()
+
+            let jsonResponse = await res.json();
 
             if (res.status === 201) {
-                console.log(jsonResponse)
                 setGameHistory([...gameHistory, jsonResponse])
             } else {
-                console.log(jsonResponse)
+                console.log(addedGame, 'added game')
                 console.log('Response not OK')
             }
         } catch (err) {
