@@ -27,7 +27,7 @@ const Game = ({game}) => {
             <td><button onClick={() => handleDelete(game.id)} type="button">Delete</button></td>
 
             <Modal isOpen={viewEditModal} onRequestClose={() => setViewEditModal(false)} className="modal">
-                <EditGameForm />
+                <EditGameForm selectedGame={game}/>
             </Modal>
         </>
     )
