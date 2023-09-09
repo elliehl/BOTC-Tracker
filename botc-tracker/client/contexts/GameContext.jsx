@@ -42,3 +42,5 @@ const GameContextProvider = (props) => {
         </GameContext.Provider>
     )
 }
+
+export default GameContextProvider
