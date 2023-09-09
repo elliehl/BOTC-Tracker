@@ -6,7 +6,7 @@ const GameContextProvider = (props) => {
     const [gameHistory, setGameHistory] = useState([])
 
     useEffect(() => {
-        getGames()
+        getGames();
     }, [])
 
     const getGames = async () => {
@@ -19,8 +19,7 @@ const GameContextProvider = (props) => {
         }
     }
 
-    const addGame = async (e) => {
-        e.preventDefault()
+    const addGame = async () => {
         try {
             let res = await fetch('https://localhost:7240/api/Games', {
                 method: 'POST',
@@ -67,8 +66,8 @@ const GameContextProvider = (props) => {
         }).catch((err) => console.log(err))
     }
 
-    const updateGame = async (e, id, newlyUpdatedGame) => {
-        e.preventDefault()
+    const updateGame = async (id, newlyUpdatedGame) => {
+        const {is_Evil, game_Won, starting_Role, final_Role, comments, date} = newlyUpdatedGame;
         try {
             let res = await fetch(`https://localhost:7240/${id}`, {
                 method: 'PUT',
@@ -76,21 +75,19 @@ const GameContextProvider = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    Is_Evil: alignment,
-                    Game_Won: result,
-                    Starting_Role: startingRole,
-                    Final_Role: finalRole,
-                    Date: date,
-                    Comments: comments
+                    id: id,
+                    is_Evil: is_Evil,
+                    game_Won: game_Won,
+                    starting_Role: starting_Role,
+                    final_Role: final_Role,
+                    date: date,
+                    comments: comments
                 })
             });
-            let jsonResponse = await res.json()
 
             if (res.status === 200) {
-                console.log(jsonResponse)
                 setGameHistory(gameHistory.map((game) => game.id === id ? newlyUpdatedGame : game))
             } else {
-                console.log(jsonResponse)
                 console.log('Response not OK')
             }
         } catch (err) {
