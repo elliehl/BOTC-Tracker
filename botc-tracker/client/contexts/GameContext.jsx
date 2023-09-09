@@ -1,9 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const GameContext = createContext();
 
 const GameContextProvider = (props) => {
     const [gameHistory, setGameHistory] = useState([])
+
+    useEffect(() => {
+        getGames()
+    }, [])
 
     const getGames = async () => {
         try {
@@ -47,7 +51,7 @@ const GameContextProvider = (props) => {
     }
 
     const deleteGame = async (id) => {
-        await fetch(`https://localhost:7240/api/Games/${id}`, {
+        await fetch(`https://localhost:7240/${id}`, {
             method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
@@ -66,7 +70,7 @@ const GameContextProvider = (props) => {
     const updateGame = async (e, id, newlyUpdatedGame) => {
         e.preventDefault()
         try {
-            let res = await fetch(`https://localhost:7240/api/Games/${id}`, {
+            let res = await fetch(`https://localhost:7240/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -95,7 +99,7 @@ const GameContextProvider = (props) => {
     }
 
     return (
-        <GameContext.Provider value={{getGames, addGame, deleteGame, updateGame}}>
+        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame}}>
             {props.children}
         </GameContext.Provider>
     )
