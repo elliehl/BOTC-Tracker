@@ -47,7 +47,7 @@ const GameContextProvider = (props) => {
     }
 
     const deleteGame = async (id) => {
-        await fetch(`https://localhost:7240/${id}`, {
+        await fetch(`https://localhost:7240/api/Games/${id}`, {
             method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
@@ -63,8 +63,39 @@ const GameContextProvider = (props) => {
         }).catch((err) => console.log(err))
     }
 
+    const updateGame = async (e, id) => {
+        e.preventDefault()
+        try {
+            let res = await fetch(`https://localhost:7240/api/Games/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Is_Evil: alignment,
+                    Game_Won: result,
+                    Starting_Role: startingRole,
+                    Final_Role: finalRole,
+                    Date: date,
+                    Comments: comments
+                })
+            });
+            let jsonResponse = await res.json()
+
+            if (res.status === 200) {
+                console.log(jsonResponse)
+                setGameHistory(gameHistory.map((game) => game.id === id ? jsonResponse : game))
+            } else {
+                console.log(jsonResponse)
+                console.log('Response not OK')
+            }
+        } catch (err) {
+            console.log('error', err)
+        }
+    }
+
     return (
-        <GameContext.Provider value={{getGames, addGame, deleteGame}}>
+        <GameContext.Provider value={{getGames, addGame, deleteGame, updateGame}}>
             {props.children}
         </GameContext.Provider>
     )
