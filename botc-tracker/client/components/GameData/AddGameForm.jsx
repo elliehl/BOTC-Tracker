@@ -1,43 +1,54 @@
 import styles from "../../styles/AddGameButton.module.css"
-import { useState } from "react"
-
+import { useContext, useState } from "react"
+import roleDataArray from "./roleData";
+import { GameContext } from "../../contexts/GameContext";
+const roleList = roleDataArray.map((role) => role.name).sort()
 
 const AddGameForm = () => {
 
+    const {addGame} = useContext(GameContext)
+
     const [id, setId] = useState(null)
     const [viewModal, setViewModal] = useState(false)
-    const [alignment, setAlignment] = useState(false)
-    const [result, setResult] = useState(false)
-    const [startingRole, setStartingRole] = useState('')
-    const [finalRole, setFinalRole] = useState('')
-    const [date, setDate] = useState('')
-    const [comments, setComments] = useState('')
+    const [is_Evil, setIs_Evil] = useState(false)
+    const [game_Won, setGame_Won] = useState(false)
+    const [starting_Role, setStarting_Role] = useState("")
+    const [final_Role, setFinal_Role] = useState("")
+    const [date, setDate] = useState("")
+    const [comments, setComments] = useState("")
+
+    const addedGame = {is_Evil, game_Won, starting_Role, final_Role, date, comments}
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addGame(addedGame);
+    }
 
     return (
         <form action="/GameData" method="POST" id="overallForm" className={styles["form"]} onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="starting-role-box">Starting Role</label>
-                <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={startingRole} onChange={(e) => setStartingRole(e.target.value)}></input>
+                <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={starting_Role} onChange={(e) => setStarting_Role(e.target.value)}></input>
                 <datalist id="roles">
                     {roleList.map((roleName) => <option>{roleName}</option>)}
                 </datalist>
             </div>
             <div>
                 <label htmlFor="final-role-box">Final Role</label>
-                <input id="final-role-box" list="roles" name="Final Role" required={true} value={finalRole} onChange={(e) => setFinalRole(e.target.value)}></input>
+                <input id="final-role-box" list="roles" name="Final Role" required={true} value={final_Role} onChange={(e) => setFinal_Role(e.target.value)}></input>
                 <datalist id="roles">
                     {roleList.map((roleName) => <option>{roleName}</option>)}
                 </datalist>
             </div>
             <div className={styles["alignment-container"]}>
-                <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={alignment} onChange={e => setAlignment(!alignment)}></input>
+                <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={is_Evil} onChange={e => setIs_Evil(!is_Evil)}></input>
                 <label className="good-aligned" htmlFor="alignment-box">Good</label>
                 <label className="evil-aligned" htmlFor="alignment-box">Evil</label>
             </div>
             <div className={styles["result-container"]}>
                 <label htmlFor="result-box">Result</label>
                 <div className={styles["button-container"]}>
-                    <input id="result-box" type="checkbox" className={styles["result-button"]} checked={result} onChange={e => setResult(!result)}></input>
+                    <input id="result-box" type="checkbox" className={styles["result-button"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
                 </div>
             </div>
             <div>
