@@ -5,8 +5,8 @@ const CharacterTypeStats = () => {
     const [typeStats, setTypeStats] = useState([])
 
     const getTypeStats = async () => {
-        const res = await fetch('http://localhost:9090/type')
-        res.json().then((res) => setTypeStats(res.stats))
+        const res = await fetch('https://localhost:7240/api/Stats/typeStats')
+        res.json().then((res) => setTypeStats(res))
     }
 
     useEffect(() => {

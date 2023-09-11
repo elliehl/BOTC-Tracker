@@ -5,8 +5,8 @@ const RoleStats = () => {
     const [roleStats, setRoleStats] = useState([])
 
     const getRoleStats = async () => {
-        const res = await fetch('http://localhost:9090/roles')
-        res.json().then((res) => setRoleStats(res.stats))
+        const res = await fetch('https://localhost:7240/api/Stats/roleStats')
+        res.json().then((res) => setRoleStats(res))
     }
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const RoleStats = () => {
                 return (
                     <tbody>
                         <tr>
-                            <td>{rank.starting_role}</td>
+                            <td>{rank.starting_Role}</td>
                             <td>{rank.games}</td>
                             <td>{rank.wins}</td>
                             <td>{Math.round((rank.wins / rank.games) * 100)}%</td>

@@ -5,8 +5,8 @@ const AlignmentStats = () => {
     const [alignmentStats, setAlignmentStats] = useState([])
 
     const getAlignmentStats = async () => {
-        const res = await fetch('http://localhost:9090/alignment')
-        res.json().then((res) => setAlignmentStats(res.stats))
+        const res = await fetch('https://localhost:7240/api/Stats/alignmentStats')
+        res.json().then((res) => setAlignmentStats(res))
     }
 
     useEffect(() => {
@@ -17,11 +17,11 @@ const AlignmentStats = () => {
         <div className={styles['alignment-container']}>
         <>
         {alignmentStats.map((stats) => {
-            return (<div key={stats.id} className={styles['alignment-list']}>
+            return (<div key={stats.id}>
                 <>
-                {<h3>{stats.is_evil === 0 ? 'Good Games: ' : 'Evil Games: '} {stats.games}</h3>}
-                {<h3>{stats.is_evil === 0 ? 'Good Wins: ' : 'Evil Wins: '} {stats.wins}</h3>}
-                {<h3>{stats.is_evil === 0 ? 'Good Win Percentage: ' : 'Evil Win Percentage: '} {Math.round((stats.wins / stats.games) * 100)}%</h3>}
+                {<h3>{stats.is_Evil === false ? 'Good Games: ' : 'Evil Games: '} {stats.games}</h3>}
+                {<h3>{stats.is_Evil === false ? 'Good Wins: ' : 'Evil Wins: '} {stats.wins}</h3>}
+                {<h3>{stats.is_Evil === false ? 'Good Win Percentage: ' : 'Evil Win Percentage: '} {Math.round((stats.wins / stats.games) * 100)}%</h3>}
                 </>
             </div>
             )
