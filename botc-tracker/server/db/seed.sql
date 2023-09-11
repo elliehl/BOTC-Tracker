@@ -139,12 +139,4 @@ VALUES ('Alchemist', 1),
        ('Thief', 5),
        ('Voudon', 5),
        ('High Priestess', 1);
-       
-INSERT INTO games(date, game_won, is_evil, comments, starting_role_id, final_role_id)
-VALUES ('2023-02-06', true, false, 'test', 1, 1),
-       ('2023-02-06', false, false, 'test', 1, 1),
-       ('2023-02-06', true, false, 'test', 4, 4),
-       ('2023-02-06', true, false, 'test', 4, 4),
-       ('2023-02-06', true, false, 'test', 4, 4),
-       ('2023-02-06', false, false, 'test', 20, 20),
-       ('2023-02-06', true, true, 'test', 80, 80);
+
