@@ -1,15 +1,4 @@
 .type-container {
-    display: flex;
-    flex-direction: row;
-    max-width: 400px;
     border: 2px solid black;
     border-radius: 10px;
-    justify-content: space-evenly;
 }
-
-/* .type-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0px;
-} */

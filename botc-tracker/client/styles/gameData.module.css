@@ -4,3 +4,12 @@
     justify-content: space-evenly;
     margin: 20px;
 }
+
+.stats-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 20px;
+}
