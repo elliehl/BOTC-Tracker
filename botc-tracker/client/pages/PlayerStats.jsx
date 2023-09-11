@@ -8,7 +8,7 @@ import CharacterTypeStats from "../components/GameData/CharacterTypeStats"
 const PlayerStats = () => {
     return (
         <>
-        <div className={styles["main-page"]}>
+        <div className={styles["stats-page"]}>
             <OverallStats />
             <RoleStats />
             <AlignmentStats />
