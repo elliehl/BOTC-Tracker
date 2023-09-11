@@ -14,21 +14,27 @@ const OverallStats = () => {
     }, [])
 
     return (
-        <div className={styles['overall-stats-container']}>
-        <>
+        <table className={styles['overall-stats-container']}>
+            <thead>
+                <tr>
+                    <th>Overall Games: </th>
+                    <th>Overall Wins: </th>
+                    <th>Overall Win Percentage: </th>
+                </tr>
+            </thead>
         {overallStats.map((stats) => {
-            return (<div key={stats.id}>
-                <>
-                {<h3>{'Overall Games: '} {stats.games}</h3>}
-                {<h3>{'Overall Wins: '} {stats.wins}</h3>}
-                {<h3>{'Overall Win Percentage: '} {Math.round((stats.wins / stats.games) * 100)}%</h3>}
-                </>
-            </div>
+            return (
+                <tbody key={stats.id}>
+                    <tr>
+                        <td>{stats.games}</td>
+                        <td>{stats.wins}</td>
+                        <td>{Math.round((stats.wins / stats.games) * 100)}%</td>
+                    </tr>
+                </tbody>
             )
         })
         }
-        </>
-        </div>
+        </table>
     )
 }
 

@@ -14,21 +14,29 @@ const AlignmentStats = () => {
     }, [])
 
     return (
-        <div className={styles['alignment-container']}>
-        <>
+        <table className={styles['alignment-container']}>
         {alignmentStats.map((stats) => {
-            return (<div key={stats.id}>
-                <>
-                {<h3>{stats.is_Evil === false ? 'Good Games: ' : 'Evil Games: '} {stats.games}</h3>}
-                {<h3>{stats.is_Evil === false ? 'Good Wins: ' : 'Evil Wins: '} {stats.wins}</h3>}
-                {<h3>{stats.is_Evil === false ? 'Good Win Percentage: ' : 'Evil Win Percentage: '} {Math.round((stats.wins / stats.games) * 100)}%</h3>}
-                </>
-            </div>
+            return (
+            <>
+            <thead>
+                <tr>
+                    <th>{stats.is_Evil === false ? 'Good Games: ' : 'Evil Games: '}</th>
+                    <th>{stats.is_Evil === false ? 'Good Wins: ' : 'Evil Wins: '}</th>
+                    <th>{stats.is_Evil === false ? 'Good Win Percentage: ' : 'Evil Win Percentage: '}</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr>
+                <td>{stats.games}</td>
+                <td>{stats.wins}</td>
+                <td>{Math.round((stats.wins / stats.games) * 100)}%</td>
+                </tr>
+            </tbody>
+            </>
             )
         })
         }
-        </>
-        </div>
+        </table>
     )
 }
 

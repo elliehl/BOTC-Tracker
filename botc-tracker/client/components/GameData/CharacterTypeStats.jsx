@@ -14,28 +14,29 @@ const CharacterTypeStats = () => {
     }, [])
 
     return (
-        <div className={styles['type-container']}>
-        <>
-        <div>
-            <h3>Type</h3>
-            <h3>Games</h3>
-            <h3>Wins</h3>
-            <h3>Win %</h3>
-            </div>
+        <table className={styles['type-container']}>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Games</th>
+                    <th>Wins</th>
+                    <th>Win Percentage</th>
+                </tr>
+            </thead>
         {typeStats.map((stats) => {
-            return (<div key={stats.id} className={styles['type-list']}>
-                <>
-                {<h3>{stats.type}</h3>}
-                {<h3>{stats.games}</h3>}
-                {<h3>{stats.wins}</h3>}
-                {<h3>{Math.round((stats.wins / stats.games) * 100)}%</h3>}
-                </>
-            </div>
+            return (
+            <tbody key={stats.id} className={styles['type-list']}>
+                <tr>
+                    {<td>{stats.type}</td>}
+                    {<td>{stats.games}</td>}
+                    {<td>{stats.wins}</td>}
+                    {<td>{Math.round((stats.wins / stats.games) * 100)}%</td>}
+                </tr>
+            </tbody>
             )
         })
         }
-        </>
-        </div>
+        </table>
     )
 }
 
