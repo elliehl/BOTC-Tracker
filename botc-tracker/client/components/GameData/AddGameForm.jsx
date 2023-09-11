@@ -42,14 +42,11 @@ const AddGameForm = () => {
             </div>
             <div className={styles["alignment-container"]}>
                 <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={is_Evil} onChange={e => setIs_Evil(!is_Evil)}></input>
-                <label className="good-aligned" htmlFor="alignment-box">Good</label>
-                <label className="evil-aligned" htmlFor="alignment-box">Evil</label>
+                <label htmlFor="alignment-box">{is_Evil === true ? "Evil" : "Good"}</label>
             </div>
             <div className={styles["result-container"]}>
-                <label htmlFor="result-box">Result</label>
-                <div className={styles["button-container"]}>
-                    <input id="result-box" type="checkbox" className={styles["result-button"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
-                </div>
+                <input id="result-box" type="checkbox" className={styles["result-toggle"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
+                <label htmlFor="result-box">{game_Won === true ? "Win" : "Loss"}</label>
             </div>
             <div>
                 <label htmlFor="date-box">Date</label>
