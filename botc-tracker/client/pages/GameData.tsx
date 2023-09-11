@@ -7,7 +7,6 @@ const GameData = () => {
 
     return (
         <>
-
         <div className={styles["main-page"]}>
         <DisplayGames />
         </div>
