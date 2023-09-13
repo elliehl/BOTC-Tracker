@@ -29,11 +29,12 @@
     border-radius: 0 10px 10px 0;
 } */
 
-/* .alignment-container, .result-container {
+.alignment-container, .result-container {
     display: flex;
     flex-direction: row;
     gap: 10px;
-} */
+    align-items: center;
+}
 
 input[type="checkbox"].alignment-toggle {
     opacity: 0;
