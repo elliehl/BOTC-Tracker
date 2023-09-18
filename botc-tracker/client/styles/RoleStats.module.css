@@ -7,14 +7,7 @@
     padding: 0.5em;
 }
 
-.role-stats-titles {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.played-list {
+/* .played-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -23,14 +16,7 @@
 
 .played-list:not(:last-child) {
     border-bottom: 2px solid black;
-}
-
-.starting-role-item, .games-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 1em;
-}
+} */
 
 .select-button {
     border-radius: 4px;
