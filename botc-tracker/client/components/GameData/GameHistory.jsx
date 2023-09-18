@@ -44,7 +44,7 @@ const DisplayGames = () => {
             </tbody>
         </table>
 
-        <Modal isOpen={viewAddModal} onRequestClose={() => setViewAddModal(false)}>
+        <Modal isOpen={viewAddModal} onRequestClose={() => setViewAddModal(false)} className={styles["modal"]}>
             <AddGameForm />
         </Modal>
         </>
