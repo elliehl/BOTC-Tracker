@@ -1,8 +1,9 @@
 .role-stats-container {
-    /* display: flex; */
-    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     border: 2px solid black;
     border-radius: 10px;
+    min-width: 200px;
 }
 
 .role-stats-titles {
@@ -28,4 +29,11 @@
     justify-content: center;
     align-items: center;
     margin: 0 1em;
+}
+
+.select-button {
+    border-radius: 4px;
+    text-align: center;
+    width: 50%;
+    margin: 0.5em auto;
 }
