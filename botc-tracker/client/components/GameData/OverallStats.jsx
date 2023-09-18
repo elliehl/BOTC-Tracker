@@ -19,7 +19,7 @@ const OverallStats = () => {
                 <tr>
                     <th>Overall Games: </th>
                     <th>Overall Wins: </th>
-                    <th>Overall Win Percentage: </th>
+                    <th>Overall Win %: </th>
                 </tr>
             </thead>
         {overallStats.map((stats) => {

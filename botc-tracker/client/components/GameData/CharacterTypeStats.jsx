@@ -20,7 +20,7 @@ const CharacterTypeStats = () => {
                     <th>Type</th>
                     <th>Games</th>
                     <th>Wins</th>
-                    <th>Win Percentage</th>
+                    <th>Win %</th>
                 </tr>
             </thead>
         {typeStats.map((stats) => {

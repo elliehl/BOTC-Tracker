@@ -22,7 +22,7 @@ const AlignmentStats = () => {
                 <tr>
                     <th>{stats.is_Evil === false ? 'Good Games: ' : 'Evil Games: '}</th>
                     <th>{stats.is_Evil === false ? 'Good Wins: ' : 'Evil Wins: '}</th>
-                    <th>{stats.is_Evil === false ? 'Good Win Percentage: ' : 'Evil Win Percentage: '}</th>
+                    <th>{stats.is_Evil === false ? 'Good Win %: ' : 'Evil Win %: '}</th>
                 </tr>
             </thead>    
             <tbody>
