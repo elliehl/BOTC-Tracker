@@ -23,7 +23,7 @@ const Game = ({game}) => {
             <td>{game.is_Evil === false ? 'Good' : 'Evil'}</td>
             <td>{game.game_Won === false ? 'Loss' : 'Win'}</td>
             <td>{game.comments}</td>
-            <td>{game.date === null ? 'No Date' : new Date(game.date).toDateString()}</td>
+            <td>{game.date == "0001-01-01T00:00:00" ? 'No Date' : new Date(game.date).toDateString()}</td>
             <td><button onClick={() => setViewEditModal(true)} type="button">Edit</button></td>
             <td><button onClick={() => deleteGame(game.id)} type="button">Delete</button></td>
 
