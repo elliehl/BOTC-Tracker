@@ -1,3 +1,3 @@
-This project tracks my stats from Blood on the Clocktower. It will initially display my stats as a player, including games played, wins, and win percentages both overall and sorted by character, character type, and alignment. Once this has been completed I will add the stats from games I have run as a storyteller, including the most played roles, wins by alignment, and stats for players playing in those games.
+This project tracks a player's stats from Blood on the Clocktower. It has a page for game history, showing the starting and final role the player played as, the date the game was played, the alignment (good/evil), result (win/loss), and any comments the player wants to add. It also has a stats page where the player can see their overall stats, as well as stats by alignment, character type and role. The stats displayed are games played, wins, and win percentage, with the ability to sort by each within role stats.
 
-It is created using Next.js, Typescript, Express, Node.js, and PostgreSQL.
+This repository contains the front end of the project, and the overall project is made using .NET, React, and MySQL.
