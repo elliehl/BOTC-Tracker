@@ -32,7 +32,7 @@ const GameContextProvider = (props) => {
                     Game_Won: game_Won,
                     Starting_Role: starting_Role,
                     Final_Role: final_Role,
-                    Date: date,
+                    Date: date !== "" ? date : "0001-01-01T00:00:00",
                     Comments: comments
                 })
             });
@@ -81,7 +81,7 @@ const GameContextProvider = (props) => {
                     game_Won: game_Won,
                     starting_Role: starting_Role,
                     final_Role: final_Role,
-                    date: date,
+                    date: date !== "" ? date : "0001-01-01T00:00:00",
                     comments: comments
                 })
             });
