@@ -125,9 +125,6 @@ input[type="checkbox"].result-toggle:checked + label::after{
 }
 
 .form {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
     margin-top: 100px;
     padding: 60px 80px;
     background-color: white;
