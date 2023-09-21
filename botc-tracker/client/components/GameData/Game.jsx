@@ -29,7 +29,6 @@ const Game = ({game}) => {
 
             <Modal isOpen={viewEditModal} onRequestClose={() => setViewEditModal(false)} className={styles["modal"]}>
                 <EditGameForm selectedGame={game}/>
-                {console.log(game)}
             </Modal>
         </>
     )
