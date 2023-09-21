@@ -51,11 +51,14 @@ const RoleStats = () => {
 
     return (
         <div className={styles['role-stats-container']}>
+        <div className={styles["sort-row"]}>
+        <h4 className={styles["sort-heading"]}>Sort by: </h4>
         <select defaultValue={'games'} onChange={onSelectChange} className={styles['select-button']}>
             <option value={'games'}>Games</option>
             <option value={'wins'}>Wins</option>
             <option value={'winPercentage'}>Win %</option>
         </select>
+        </div>
         <table>
             <thead>
                 <tr>
