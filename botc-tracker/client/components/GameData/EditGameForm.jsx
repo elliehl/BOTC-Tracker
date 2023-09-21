@@ -47,24 +47,23 @@ const EditGameForm = ({selectedGame}) => {
                     {roleList.map((roleName) => <option>{roleName}</option>)}
                 </datalist>
             </div>
-            <div className={styles["alignment-container"]}>
-                <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={is_Evil} onChange={e => setIs_Evil(!is_Evil)}></input>
-                <label className="good-aligned" htmlFor="alignment-box">Good</label>
-                <label className="evil-aligned" htmlFor="alignment-box">Evil</label>
-            </div>
-            <div className={styles["result-container"]}>
-                <label htmlFor="result-box">Result</label>
-                <div className={styles["button-container"]}>
-                    <input id="result-box" type="checkbox" className={styles["result-button"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
-                </div>
+            <div className={styles["form-row"]}>
+                <label htmlFor="comments-box" className={styles["left-label"]}>Comments</label>
+                <input id="comments-box" type="text" value={comments} onChange={e => setComments(e.target.value)}></input>
             </div>
             <div className={styles["form-row"]}>
                 <label htmlFor="date-box" className={styles["left-label"]}>Date</label>
                 <input id="date-box" type="date" value={date} onChange={e => setDate(e.target.value)}></input>
             </div>
-            <div className={styles["form-row"]}>
-                <label htmlFor="comments-box" className={styles["left-label"]}>Comments</label>
-                <input id="comments-box" type="text" value={comments} onChange={e => setComments(e.target.value)}></input>
+            <div className={styles["alignment-container"]}>
+                <label htmlFor="alignment-box" className={styles["left-label"]}>Alignment </label>
+                <input id="alignment-box" type="checkbox" className={styles["alignment-toggle"]} checked={is_Evil} onChange={e => setIs_Evil(!is_Evil)}></input>
+                <label htmlFor="alignment-box">{is_Evil === true ? "Evil" : "Good"}</label>
+            </div>
+            <div className={styles["result-container"]}>
+                <label htmlFor="result-box" className={styles["left-label"]}>Result </label>
+                <input id="result-box" type="checkbox" className={styles["result-toggle"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
+                <label htmlFor="result-box">{game_Won === true ? "Win" : "Loss"}</label>
             </div>
             <div className={styles["modal-submit-button"]}>
                 <button type="submit">Submit</button>
