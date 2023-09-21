@@ -11,13 +11,14 @@ const roleList = roleDataArray.map((role) => role.name).sort()
 const EditGameForm = ({selectedGame}) => {
 
     const id = selectedGame.id
+    const accountForTimeZoneVariation = new Date(selectedGame.date).toLocaleDateString().split("/").reverse().join("-")
 
     const [viewModal, setViewModal] = useState(false)
     const [is_Evil, setIs_Evil] = useState(selectedGame.is_Evil)
     const [game_Won, setGame_Won] = useState(selectedGame.game_Won)
     const [starting_Role, setStarting_Role] = useState(selectedGame.starting_Role)
     const [final_Role, setFinal_Role] = useState(selectedGame.final_Role)
-    const [date, setDate] = useState(new Date(selectedGame.date).toISOString().split('T')[0])
+    const [date, setDate] = useState(accountForTimeZoneVariation)
     const [comments, setComments] = useState(selectedGame.comments)
 
     const {updateGame} = useContext(GameContext)
