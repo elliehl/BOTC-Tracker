@@ -32,7 +32,7 @@ const EditGameForm = ({selectedGame}) => {
 
     return (
         <div className={abel.className}>
-        <form action="/GameData" method="PUT" id="overallForm" className={styles["edit-form"]} onSubmit={handleSubmit}>
+        <form action="/GameData" method="PUT" id="overallForm" className={styles["form"]} onSubmit={handleSubmit}>
             <div className={styles["form-row"]}>
                 <label htmlFor="starting-role-box" className={styles["left-label"]}>Starting Role</label>
                 <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={starting_Role} onChange={(e) => setStarting_Role(e.target.value)}></input>
@@ -65,9 +65,8 @@ const EditGameForm = ({selectedGame}) => {
                 <input id="result-box" type="checkbox" className={styles["result-toggle"]} checked={game_Won} onChange={e => setGame_Won(!game_Won)}></input>
                 <label htmlFor="result-box">{game_Won === true ? "Win" : "Loss"}</label>
             </div>
-            <div className={styles["modal-submit-button"]}>
-                <button type="submit">Submit</button>
-                <button onClick={() => setViewModal(false)}>Cancel</button>
+            <div className={styles["modal-submit-row"]}>
+                <button type="submit" className={styles["modal-submit-button"]}>Submit</button>
             </div>
         </form>
         </div>
