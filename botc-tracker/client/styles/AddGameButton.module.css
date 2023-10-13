@@ -1,11 +1,13 @@
 .add-game-button {
     font-size: 20px;
     padding: 12px;
-    width: 150px;
+    width: 20%;
     cursor: pointer;
     font-family: inherit;
     border-radius: 10px;
     border-style: solid;
+    margin-bottom: 10px;
+
 }
 
 .add-game-button-container {

@@ -1,0 +1,28 @@
+.page-item {
+    list-style: none;
+    height: 2.5rem;
+}
+
+.page-item a {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.page-item :hover{
+    border-radius: 0.4rem;
+    outline: 1.5px solid grey;
+}
+
+.page-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
