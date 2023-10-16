@@ -2,4 +2,9 @@
     border: 2px solid black;
     border-radius: 10px;
     padding: 0.5em;
+    width: 125%;
+}
+
+.alignment-container td {
+    text-align: center;
 }

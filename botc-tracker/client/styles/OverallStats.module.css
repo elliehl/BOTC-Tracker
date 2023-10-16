@@ -1,5 +1,14 @@
 .overall-stats-container {
-    border: 2px solid black;
+    border: 2px solid #000000;
     border-radius: 10px;
     padding: 0.5em;
+    width: 125%
+}
+
+.overall-stats-container td, .overall-stats-container th {
+    padding: 2px 5px;
+}
+
+.overall-stats-container td {
+    text-align: center;
 }
