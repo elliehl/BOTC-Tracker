@@ -7,14 +7,14 @@ import CharacterTypeStats from "../components/GameData/CharacterTypeStats"
 
 const PlayerStats = () => {
     return (
-        <>
         <div className={styles["stats-page"]}>
-            <OverallStats />
             <RoleStats />
-            <AlignmentStats />
-            <CharacterTypeStats />
+            <div className={styles["stats-page-right"]}>
+                <OverallStats />
+                <AlignmentStats />
+                <CharacterTypeStats />
+             </div>
         </div>
-        </>
     )
 }
 
