@@ -10,6 +10,11 @@ import Pagination from "./Pagination"
 const DisplayGames = () => {
 
     const {gameHistory} = useContext(GameContext)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [gamesPerPage, setGamesPerPage] = useState(15)
+    const lastGameOnPage = currentPage * gamesPerPage
+    const firstGameOnPage = lastGameOnPage - gamesPerPage
+    const currentDisplayedGameHistory = gameHistory.slice(firstGameOnPage, lastGameOnPage)
 
     const [viewAddModal, setViewAddModal] = useState(false)
     
@@ -37,7 +42,7 @@ const DisplayGames = () => {
                 </tr>
             </thead>
             <tbody>
-                {gameHistory.map((game) => (
+                {currentDisplayedGameHistory.map((game) => (
                     <tr key={game.id}>
                         {gameHistory.length === 0 && 'No Game History'}
                         <Game game={game}/>
@@ -47,7 +52,7 @@ const DisplayGames = () => {
         </table>
         </div>
 
-        <Pagination />
+        <Pagination gamesPerPage={gamesPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} firstGameOnPage={firstGameOnPage} lastGameOnPage={lastGameOnPage}/>
 
         <Modal isOpen={viewAddModal} onRequestClose={() => setViewAddModal(false)} className={styles["modal"]}>
             <AddGameForm />
