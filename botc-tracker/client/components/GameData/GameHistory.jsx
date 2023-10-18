@@ -11,7 +11,7 @@ const DisplayGames = () => {
 
     const {gameHistory} = useContext(GameContext)
     const [currentPage, setCurrentPage] = useState(1)
-    const [gamesPerPage, setGamesPerPage] = useState(15)
+    const [gamesPerPage, setGamesPerPage] = useState(20)
     const lastGameOnPage = currentPage * gamesPerPage
     const firstGameOnPage = lastGameOnPage - gamesPerPage
     const currentDisplayedGameHistory = gameHistory.slice(firstGameOnPage, lastGameOnPage)
