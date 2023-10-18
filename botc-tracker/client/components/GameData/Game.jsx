@@ -9,6 +9,10 @@ const Game = ({game}) => {
 
     const {deleteGame} = useContext(GameContext)
 
+    const [confirmDeletePopup, setConfirmDeletePopup] = useState({
+        show: false,
+        id: null
+    })
     const [viewEditModal, setViewEditModal] = useState(false)
     
     useEffect(() => {
