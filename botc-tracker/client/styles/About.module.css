@@ -1,0 +1,10 @@
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.faq-container a {
+    text-decoration: none;
+    color: #0F52BA;
+}
