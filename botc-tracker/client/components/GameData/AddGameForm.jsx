@@ -7,12 +7,11 @@ const roleList = roleDataArray.map((role) => role.name).sort()
 
 const abel = Abel({ weight: '400', subsets: ['latin'] })
 
-const AddGameForm = () => {
+const AddGameForm = ({setViewAddModal}) => {
 
     const {addGame} = useContext(GameContext)
 
     const [id, setId] = useState(null)
-    const [viewModal, setViewModal] = useState(false)
     const [is_Evil, setIs_Evil] = useState(false)
     const [game_Won, setGame_Won] = useState(false)
     const [starting_Role, setStarting_Role] = useState("")
@@ -30,6 +29,9 @@ const AddGameForm = () => {
     return (
         <div className={abel.className}>
         <form action="/GameData" method="POST" id="overallForm" className={styles["form"]} onSubmit={handleSubmit}>
+            <div className={styles['close-icon']}>
+                <button onClick={() => setViewAddModal(false)} className={styles['close-icon-button']}>X</button>
+            </div>
             <div className={styles["form-row"]}>
                 <label htmlFor="starting-role-box" className={styles["left-label"]}>Starting Role </label>
                 <input id="starting-role-box" list="roles" name="Starting Role" required={true} value={starting_Role} onChange={(e) => setStarting_Role(e.target.value)}></input>
@@ -64,6 +66,7 @@ const AddGameForm = () => {
             </div>
             <div className={styles["modal-submit-row"]}>
                 <button type="submit" className={styles["modal-submit-button"]}>Submit</button>
+                <button onClick={() => setViewAddModal(false)} className={styles["modal-submit-button"]}>Cancel</button>
             </div>
         </form>
         </div>

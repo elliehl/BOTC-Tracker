@@ -55,7 +55,7 @@ const DisplayGames = () => {
         <Pagination gamesPerPage={gamesPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} firstGameOnPage={firstGameOnPage} lastGameOnPage={lastGameOnPage}/>
 
         <Modal isOpen={viewAddModal} onRequestClose={() => setViewAddModal(false)} className={styles["modal"]}>
-            <AddGameForm />
+            <AddGameForm setViewAddModal={setViewAddModal}/>
         </Modal>
         </div>
     )

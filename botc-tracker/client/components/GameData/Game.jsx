@@ -28,7 +28,7 @@ const Game = ({game}) => {
             <td><button onClick={() => setViewConfirmDeleteModal(true)} type="button">Delete</button></td>
 
             <Modal isOpen={viewEditModal} onRequestClose={() => setViewEditModal(false)} className={styles["modal"]}>
-                <EditGameForm selectedGame={game}/>
+                <EditGameForm selectedGame={game} setViewEditModal={setViewEditModal}/>
             </Modal>
 
             <Modal isOpen={viewConfirmDeleteModal} onRequestClose={() => setViewConfirmDeleteModal(false)} className={styles["modal"]}>
