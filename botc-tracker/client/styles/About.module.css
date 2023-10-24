@@ -1,10 +1,11 @@
 .faq-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
     max-width: 75ch;
     margin: 3rem auto 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: rgb(214, 237, 245);
 }
 
 .faq-container a {
@@ -13,9 +14,58 @@
 }
 
 .question-container {
+    background-color: aliceblue;
+    padding: 1.5rem;
+    width: 85%;
+    border-radius: 5px;
+}
+
+.question-label {
+    display: block;
+    padding: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.question-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.5rem;
+    width: 12px;
+    height: 6px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:FFFFFF;" /></svg>');
+    background-size: contain;
+    transition: transform 0.3s;
+}
+
+.answer {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 5px;
+    display: none;
+}
+
+.inner-container {
     display: flex;
     flex-direction: column;
-    background-color: grey;
-    width: 100%;
-    gap: 1rem;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 2.5% 0;
+}
+
+.input {
+    display: none;
+}
+
+.input:checked ~ .answer {
+    display: block;
+}
+
+.input:checked ~ .question-label::after {
+    transform: translateY(-50%) rotate(0.5turn)
 }
