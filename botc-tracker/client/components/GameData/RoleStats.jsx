@@ -68,31 +68,31 @@ const RoleStats = () => {
                     <th>Win %</th>
                 </tr>
             </thead>
+            <tbody>
             {sortedRoleStats.length !== 0 ? sortedRoleStats.map((rank) => {
                 return (
-                    <tbody>
+
                         <tr>
                             <td>{rank.starting_Role}</td>
                             <td>{rank.games}</td>
                             <td>{rank.wins}</td>
                             <td>{rank.winPercentage}%</td>
                         </tr>
-                    </tbody>
-                )
-            })
-            : topGames.map((rank) => {
-                return (
-                    <tbody>
+                    
+                    )
+                })
+                : topGames.map((rank) => {
+                    return (
                         <tr>
                             <td>{rank.starting_Role}</td>
                             <td>{rank.games}</td>
                             <td>{rank.wins}</td>
                             <td>{rank.winPercentage}%</td>
                         </tr>
-                    </tbody>
                 )
             })
-            }
+        }
+        </tbody>
         </table>
         </div>
     )
