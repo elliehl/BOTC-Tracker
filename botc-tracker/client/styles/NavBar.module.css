@@ -26,3 +26,10 @@
     text-decoration: none;
     color: inherit;
 }
+
+@media all and (max-width: 600px) {
+    .navbar-container {
+        font-size: 0.95rem;
+        max-width: 100vh;
+    }
+}
