@@ -131,7 +131,11 @@ const roleDataArray = [
   { name: 'Scapegoat', id: 130 },
   { name: 'Thief', id: 131 },
   { name: 'Voudon', id: 132 },
-  { name: 'High Priestess', id: 133}
+  { name: 'High Priestess', id: 133 },
+  { name: 'Harpy', id: 134 },
+  { name: 'Plague Doctor', id: 135 }, 
+  { name: 'Shugenja', id: 136 }, 
+  { name: 'Ojo', id: 137 }
 ]
 
 export default roleDataArray
