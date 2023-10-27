@@ -2,12 +2,11 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import NavBar from '../components/NavBar'
 import { Abel } from '@next/font/google'
-import type { AppProps } from 'next/app'
 import GameContextProvider from '../contexts/GameContext'
 
 const abel = Abel({ weight: '400', subsets: ['latin'] })
 
-export default function App({Component, pageProps}: AppProps) {
+export default function App({Component, pageProps}) {
   return (
   <div className={abel.className}>
     <Head>
