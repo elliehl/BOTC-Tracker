@@ -11,7 +11,7 @@ const NavBar = () => {
             </div>
             <div className={styles["navbar-right"]}>
                 <Link href="/about" className={styles["page-links"]}>About</Link>
-                <Link href="/contact" className={styles["page-links"]}>Contact</Link>
+                <Link href="/Login" className={styles["page-links"]}>Login</Link>
             </div>
         </div>
     )
