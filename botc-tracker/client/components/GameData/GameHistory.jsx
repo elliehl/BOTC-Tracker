@@ -9,7 +9,7 @@ import Pagination from "./Pagination"
 
 const DisplayGames = () => {
 
-    const {gameHistory} = useContext(GameContext)
+    const {gameHistory, isLoggedIn} = useContext(GameContext)
     const [currentPage, setCurrentPage] = useState(1)
     const [gamesPerPage, setGamesPerPage] = useState(20)
     const lastGameOnPage = currentPage * gamesPerPage
@@ -23,6 +23,8 @@ const DisplayGames = () => {
     }, [gameHistory])
 
     return (
+        <div>
+        {isLoggedIn ? (
         <div className={styles1["game-history-return"]}>
         <button onClick={() => setViewAddModal(true)} className={styles["add-game-button"]}>Add New Game</button>
         <div className={styles1['game-history-container']}>
@@ -57,6 +59,9 @@ const DisplayGames = () => {
         <Modal isOpen={viewAddModal} onRequestClose={() => setViewAddModal(false)} className={styles["modal"]}>
             <AddGameForm setViewAddModal={setViewAddModal}/>
         </Modal>
+        </div>
+        ) : <h3>Please log in</h3>
+        }
         </div>
     )
 }
