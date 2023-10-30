@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/Login.module.css"
 
-function contact () {
+function Login () {
+
+    const [test, setTest] = useState(false)
+
     return (
         <div className={styles['container']}>
             <form className={styles['form']}>
                 <div>
-                    {/* <label>Username</label> */}
                     <input type="text" placeholder="Username"></input>
                 </div>
                 <div>
-                    {/* <label>Password</label> */}
                     <input type="text" placeholder="Password"></input>
                 </div>
                 <button>Log in</button>
@@ -20,4 +21,4 @@ function contact () {
     )
 }
 
-export default contact;
+export default Login;
