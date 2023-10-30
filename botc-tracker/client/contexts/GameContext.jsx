@@ -4,6 +4,7 @@ export const GameContext = createContext();
 
 const GameContextProvider = (props) => {
     const [gameHistory, setGameHistory] = useState([])
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
 
     useEffect(() => {
         getGames();
@@ -97,7 +98,7 @@ const GameContextProvider = (props) => {
     }
 
     return (
-        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame}}>
+        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame, isLoggedIn, setIsLoggedIn}}>
             {props.children}
         </GameContext.Provider>
     )
