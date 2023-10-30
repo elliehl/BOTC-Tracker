@@ -1,0 +1,46 @@
+.container {
+    border: 0.1rem solid black;
+    border-radius: 0.2rem;
+    max-width: 20rem;
+    min-height: 20rem;
+    background-color: aliceblue;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-top: 8rem;
+}
+
+.container > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.container div input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    border-style: solid;
+}
+
+.form {
+    margin: auto;
+}
+
+.form button {
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.15rem 1.2rem;
+    border-radius: 0.5rem;
+    border-style: solid;
+    background-color: #4458ec;
+    color: white;
+}
