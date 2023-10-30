@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import styles from "../styles/Login.module.css"
 
 function Login () {
-
-    const [test, setTest] = useState(false)
-
     return (
         <div className={styles['container']}>
             <form className={styles['form']}>
