@@ -21,7 +21,10 @@ const PlayerStats = () => {
                 <CharacterTypeStats />
              </div>
         </div>
-        ) : <h3>Please log in</h3>
+        ) : 
+        <div className={styles["main-page"]}>
+            <h3>Please log in</h3>
+        </div>
         }
         </div>
     )
