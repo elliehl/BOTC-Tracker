@@ -1,0 +1,17 @@
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 8rem;
+    gap: 2rem;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 550px) {
+    .container {
+        font-size: 4vw;
+    }
+}

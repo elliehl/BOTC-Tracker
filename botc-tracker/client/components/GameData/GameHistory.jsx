@@ -6,6 +6,7 @@ import {GameContext} from "../../contexts/GameContext"
 import Game from "./Game"
 import AddGameForm from "./AddGameForm"
 import Pagination from "./Pagination"
+import NotLoggedIn from "./NotLoggedIn"
 
 const DisplayGames = () => {
 
@@ -60,7 +61,7 @@ const DisplayGames = () => {
             <AddGameForm setViewAddModal={setViewAddModal}/>
         </Modal>
         </div>
-        ) : <h3>Please log in</h3>
+        ) : <NotLoggedIn />
         }
         </div>
     )
