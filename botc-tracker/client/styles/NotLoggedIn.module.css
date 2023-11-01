@@ -10,6 +10,17 @@
     font-size: 1.4rem;
 }
 
+.sign-up-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    color: rgb(30, 30, 187)
+}
+
 @media screen and (max-width: 550px) {
     .container {
         font-size: 4vw;

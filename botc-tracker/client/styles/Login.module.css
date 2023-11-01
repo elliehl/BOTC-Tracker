@@ -15,8 +15,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
+    gap: 0.8rem;
     font-size: 1.2rem;
 }
 
@@ -43,4 +42,23 @@
     border-style: solid;
     background-color: #4458ec;
     color: white;
+}
+
+.signup-bottom-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.signup-bottom-buttons :last-child {
+    background-color: rgb(225, 53, 53);
+}
+
+.signup-top-row {
+    text-align: center;
+}
+
+.signup-close-icon {
+    display: flex;
+    justify-content: flex-end;
 }
