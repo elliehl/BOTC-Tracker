@@ -10,7 +10,7 @@ import NotLoggedIn from "./NotLoggedIn"
 
 const DisplayGames = () => {
 
-    const {gameHistory, isLoggedIn} = useContext(GameContext)
+    const {gameHistory, isLoggedIn, isLoading} = useContext(GameContext)
     const [currentPage, setCurrentPage] = useState(1)
     const [gamesPerPage, setGamesPerPage] = useState(20)
     const lastGameOnPage = currentPage * gamesPerPage
@@ -22,6 +22,10 @@ const DisplayGames = () => {
     useEffect(() => {
         setViewAddModal(false)
     }, [gameHistory])
+
+    if(isLoading) {
+        return <h2>Loading...</h2>
+    }
 
     return (
         <div>
