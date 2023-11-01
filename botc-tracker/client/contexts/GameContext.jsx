@@ -5,6 +5,7 @@ export const GameContext = createContext();
 const GameContextProvider = (props) => {
     const [gameHistory, setGameHistory] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getGames();
@@ -13,7 +14,10 @@ const GameContextProvider = (props) => {
     const getGames = async () => {
         try {
         const res = await fetch('https://localhost:7240/api/Games')
-        res.json().then((res) => setGameHistory(res))
+        res.json().then((res) => {
+            setGameHistory(res)
+            setIsLoading(false)
+        })
         } catch(err) {
             console.log(err)
             throw err
@@ -95,10 +99,26 @@ const GameContextProvider = (props) => {
         } catch (err) {
             console.log('error', err)
         }
+
+        // const addNewUser = async () => {
+        //     try {
+        //         let res = await fetch(`https://localhost:7240/api/Users`, {
+        //             method: 'POST',
+        //             headers: {
+        //             'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({
+        //                 
+        //             })  
+        //     }, 
+        //     )} catch (err) {
+        //         console.log('error', err)
+        //     }
+        // }
     }
 
     return (
-        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame, isLoggedIn, setIsLoggedIn}}>
+        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame, isLoggedIn, setIsLoggedIn, isLoading, setIsLoading}}>
             {props.children}
         </GameContext.Provider>
     )
