@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../styles/Login.module.css"
 const Modal = require("react-modal")
 import CreateAccountModal from "../components/GameData/CreateAccountModal"
+import { GameContext } from "../contexts/GameContext";
 
 const Login = () => {
 
-    const [viewCreateAccountModal, setViewCreateAccountModal] = useState(false)
+    const { viewCreateAccountModal, setViewCreateAccountModal } = useContext(GameContext)
 
     return (
         <div className={styles['container']}>
@@ -20,7 +21,7 @@ const Login = () => {
                 <button type="button" onClick={() => setViewCreateAccountModal(true)}>Sign up</button>
             </form>
 
-            <Modal isOpen={viewCreateAccountModal} onRequestClose={() => setViewCreateAccountModal(false)}>
+            <Modal isOpen={viewCreateAccountModal} onRequestClose={() => setViewCreateAccountModal(false)} className={styles["modal"]}>
                 <CreateAccountModal setViewCreateAccountModal={setViewCreateAccountModal}/>
             </Modal>
         </div>

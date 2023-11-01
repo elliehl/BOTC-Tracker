@@ -1,10 +1,13 @@
 import { createContext, useEffect, useState } from "react";
+import { Abel } from '@next/font/google'
 
 export const GameContext = createContext();
+const abel = Abel({ weight: '400', subsets: ['latin'] })
 
 const GameContextProvider = (props) => {
     const [gameHistory, setGameHistory] = useState([])
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [viewCreateAccountModal, setViewCreateAccountModal] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -118,7 +121,7 @@ const GameContextProvider = (props) => {
     }
 
     return (
-        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame, isLoggedIn, setIsLoggedIn, isLoading, setIsLoading}}>
+        <GameContext.Provider value={{gameHistory, getGames, addGame, deleteGame, updateGame, isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, abel, viewCreateAccountModal, setViewCreateAccountModal}}>
             {props.children}
         </GameContext.Provider>
     )
