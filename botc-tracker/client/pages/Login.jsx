@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import styles from "../styles/Login.module.css"
+const Modal = require("react-modal")
+import CreateAccountModal from "../components/GameData/CreateAccountModal"
 
-function Login () {
+const Login = () => {
+
+    const [viewCreateAccountModal, setViewCreateAccountModal] = useState(false)
+
     return (
         <div className={styles['container']}>
             <form className={styles['form']}>
@@ -12,9 +17,14 @@ function Login () {
                     <input type="text" placeholder="Password"></input>
                 </div>
                 <button>Log in</button>
-                <button>Sign up</button>
+                <button type="button" onClick={() => setViewCreateAccountModal(true)}>Sign up</button>
             </form>
+
+            <Modal isOpen={viewCreateAccountModal} onRequestClose={() => setViewCreateAccountModal(false)}>
+                <CreateAccountModal setViewCreateAccountModal={setViewCreateAccountModal}/>
+            </Modal>
         </div>
+
     )
 }
 
