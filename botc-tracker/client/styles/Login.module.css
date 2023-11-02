@@ -44,6 +44,10 @@
     color: white;
 }
 
+.form button.last-button {
+    background: #18c94a;
+}
+
 .signup-bottom-buttons {
     display: flex;
     flex-direction: column;

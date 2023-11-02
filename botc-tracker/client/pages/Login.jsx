@@ -18,7 +18,7 @@ const Login = () => {
                     <input type="text" placeholder="Password"></input>
                 </div>
                 <button>Log in</button>
-                <button type="button" onClick={() => setViewCreateAccountModal(true)}>Sign up</button>
+                <button className={styles["last-button"]} type="button" onClick={() => setViewCreateAccountModal(true)}>Sign up</button>
             </form>
 
             <Modal isOpen={viewCreateAccountModal} onRequestClose={() => setViewCreateAccountModal(false)} className={styles["modal"]}>
